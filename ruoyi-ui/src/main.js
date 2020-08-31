@@ -2,20 +2,20 @@ import Vue from 'vue'
 
 import Cookies from 'js-cookie'
 
-import 'normalize.css/normalize.css' // a modern alternative to CSS resets
+import 'normalize.css/normalize.css' // 一个可以定制的CSS文件，它让不同的浏览器在渲染网页元素的时候形式更统一
 
 import Element from 'element-ui'
 import './assets/styles/element-variables.scss'
 
-import '@/assets/styles/index.scss' // global css
+import '@/assets/styles/index.scss' // 全局css
 import '@/assets/styles/ruoyi.scss' // ruoyi css
 import App from './App'
 import store from './store'
 import router from './router'
 import permission from './directive/permission'
 
-import './assets/icons' // icon
-import './permission' // permission control
+import './assets/icons' // 图标
+import './permission' // 权限控制
 import {
   getDicts
 } from "@/api/system/dict/data";
@@ -34,6 +34,9 @@ import {
 import Pagination from "@/components/Pagination";
 //自定义表格工具扩展
 import RightToolbar from "@/components/RightToolbar"
+import vRegion from 'v-region' //行政区划选择器
+
+Vue.use(vRegion)
 
 // 全局方法挂载
 Vue.prototype.getDicts = getDicts
