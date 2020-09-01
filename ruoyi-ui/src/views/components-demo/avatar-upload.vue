@@ -7,8 +7,7 @@
           <a
             class="link-type"
             href="//github.com/dai-siki/vue-image-crop-upload"
-            >vue-image-crop-upload
-          </a>
+          >vue-image-crop-upload</a>
           图片上传
         </aside>
         <my-upload
@@ -25,9 +24,7 @@
           img-format="png"
         ></my-upload>
         <pan-thumb :image="imgDataUrl" />
-        <el-button type="primary" icon="el-icon-upload" @click="toggleShow"
-          >上传头像</el-button
-        >
+        <el-button type="primary" icon="el-icon-upload" @click="toggleShow">上传头像</el-button>
       </div>
 
       <div style="margin-top:20px">
@@ -36,16 +33,14 @@
           <a
             class="link-type"
             href="https://element.faas.ele.me/#/zh-CN/component/upload"
-            >el-upload</a
-          >
+          >el-upload</a>
           的文件上传
         </aside>
         <el-button
           type="primary"
           icon="el-icon-upload"
           @click="actiondialogVisible = true"
-          >上传文件(action方式)</el-button
-        >
+        >上传文件(action方式)</el-button>
         <el-dialog
           v-el-drag-dialog
           title="action方式上传文件"
@@ -63,7 +58,8 @@
             :on-success="actionsuccess"
             :on-error="actionerror"
             :before-upload="actionbefore"
-            :action="actionurl()"
+            :action="actionurl"
+            :headers="headers"
             drag
             multiple
           >
@@ -72,9 +68,7 @@
               将文件拖到此处，或
               <em>点击上传</em>
             </div>
-            <div class="el-upload__tip" slot="tip">
-              文件大小不超过300MB
-            </div>
+            <div class="el-upload__tip" slot="tip">文件大小不超过300MB</div>
           </el-upload>
           <span slot="footer" class="dialog-footer">
             <el-button @click="actiondialogVisible = false">取 消</el-button>
@@ -88,8 +82,7 @@
           type="primary"
           icon="el-icon-upload"
           @click="httpdialogVisible = true"
-          >上传文件(http-request方式)</el-button
-        >
+        >上传文件(http-request方式)</el-button>
         <el-dialog
           v-el-drag-dialog
           title="http-request方式上传文件"
@@ -101,7 +94,7 @@
           <el-upload
             class="upload-demo"
             list-type="text"
-            action=""
+            action
             :http-request="httpupload"
             drag
             multiple
@@ -111,15 +104,11 @@
               将文件拖到此处，或
               <em>点击上传</em>
             </div>
-            <div class="el-upload__tip" slot="tip">
-              只能上传jpg/png文件，且不超过500kb
-            </div>
+            <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
           </el-upload>
           <span slot="footer" class="dialog-footer">
             <el-button @click="httpdialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="httpdialogVisible = false"
-              >确 定</el-button
-            >
+            <el-button type="primary" @click="httpdialogVisible = false">确 定</el-button>
           </span>
         </el-dialog>
       </div>
@@ -128,29 +117,35 @@
 </template>
 
 <script>
-import PanThumb from '@/components/PanThumb';
-import myUpload from 'vue-image-crop-upload'; //基于https://github.com/dai-siki/vue-image-crop-upload
-import elDragDialog from '@/directive/el-drag-dialog'; // 基于el-dialog的拖拽dialog
-import { upload } from '@/api/file';
+import PanThumb from "@/components/PanThumb";
+import myUpload from "vue-image-crop-upload"; //基于https://github.com/dai-siki/vue-image-crop-upload
+import elDragDialog from "@/directive/el-drag-dialog"; // 基于el-dialog的拖拽dialog
+import { getToken } from "@/utils/auth";
 
 export default {
-  name: 'AvatarUploadDemo',
-  components: { PanThumb, 'my-upload': myUpload },
+  name: "AvatarUploadDemo",
+  components: { PanThumb, "my-upload": myUpload },
   directives: { elDragDialog },
   data() {
     return {
       show: false,
       params: {
-        token: '123456798',
-        name: 'avatar',
+        token: "123456798",
+        name: "avatar",
       },
       headers: {
-        smail: '*_~',
+        smail: "*_~",
       },
       imgDataUrl:
-        'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif', // the datebase64 url of created imag
+        "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif", // the datebase64 url of created imag
       actiondialogVisible: false,
       httpdialogVisible: false,
+      // action方式上传的地址
+      actionurl: process.env.VUE_APP_BASE_API + "/testfile/actionupload",
+      // action方式设置上传的请求头部
+      headers: {
+        Authorization: "Bearer " + getToken(),
+      },
     };
   },
   methods: {
@@ -159,24 +154,20 @@ export default {
     },
     //图片截取完成事件（上传前)
     cropSuccess(imgDataUrl, field) {
-      console.log('-------- crop success --------');
+      console.log("-------- crop success --------");
       this.imgDataUrl = imgDataUrl;
     },
     //上传成功回调
     cropUploadSuccess(jsonData, field) {
-      console.log('-------- upload success --------');
+      console.log("-------- upload success --------");
       console.log(jsonData);
-      console.log('field: ' + field);
+      console.log("field: " + field);
     },
     //上传失败回调
     cropUploadFail(status, field) {
-      console.log('-------- upload fail --------');
+      console.log("-------- upload fail --------");
       console.log(status);
-      console.log('field: ' + field);
-    },
-    //返回action方式上传文件接口
-    actionurl() {
-      return process.env.VUE_APP_BASE_API + '/file/actionupload';
+      console.log("field: " + field);
     },
     //action方式上传文件
     actionupload() {
@@ -187,8 +178,8 @@ export default {
       const filesize = file.size / 1024 / 1024 < 300;
       if (!filesize) {
         this.$notify({
-          message: '文件大小超过300MB',
-          type: 'warning',
+          message: "文件大小超过300MB",
+          type: "warning",
         });
       }
       return filesize;
@@ -196,14 +187,14 @@ export default {
     //action方式上传成功回调
     actionsuccess(res, file, fileList) {
       this.$notify({
-        message: '上传成功',
-        type: 'success',
+        message: "上传成功",
+        type: "success",
       });
     },
     //action方式上传失败回调
     actionerror(res, file, filelist) {
       this.$notify.error({
-        message: '上传失败',
+        message: "上传失败",
       });
     },
     //清除action方式上传列表
@@ -212,17 +203,17 @@ export default {
     },
     //http方式上传文件
     httpupload(param) {
-      alert('开发中.....');
+      alert("开发中.....");
       // FormData 对象
-      var form = new FormData();
-      form.append('file', param.file);
-      upload(form)
-        .then((response) => {
-          alert(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // var form = new FormData();
+      // form.append("file", param.file);
+      // upload(form)
+      //   .then((response) => {
+      //     alert(response.data);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     },
   },
 };
