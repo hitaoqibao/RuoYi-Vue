@@ -7,7 +7,8 @@
           <a
             class="link-type"
             href="//github.com/dai-siki/vue-image-crop-upload"
-          >vue-image-crop-upload</a>
+            >vue-image-crop-upload</a
+          >
           图片上传
         </aside>
         <my-upload
@@ -24,7 +25,9 @@
           img-format="png"
         ></my-upload>
         <pan-thumb :image="imgDataUrl" />
-        <el-button type="primary" icon="el-icon-upload" @click="toggleShow">上传头像</el-button>
+        <el-button type="primary" icon="el-icon-upload" @click="toggleShow"
+          >上传头像</el-button
+        >
       </div>
 
       <div style="margin-top:20px">
@@ -33,14 +36,16 @@
           <a
             class="link-type"
             href="https://element.faas.ele.me/#/zh-CN/component/upload"
-          >el-upload</a>
+            >el-upload</a
+          >
           的文件上传
         </aside>
         <el-button
           type="primary"
           icon="el-icon-upload"
           @click="actiondialogVisible = true"
-        >上传文件(action方式)</el-button>
+          >上传文件(action方式)</el-button
+        >
         <el-dialog
           v-el-drag-dialog
           title="action方式上传文件"
@@ -82,7 +87,8 @@
           type="primary"
           icon="el-icon-upload"
           @click="httpdialogVisible = true"
-        >上传文件(http-request方式)</el-button>
+          >上传文件(http-request方式)</el-button
+        >
         <el-dialog
           v-el-drag-dialog
           title="http-request方式上传文件"
@@ -104,11 +110,15 @@
               将文件拖到此处，或
               <em>点击上传</em>
             </div>
-            <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+            <div class="el-upload__tip" slot="tip">
+              只能上传jpg/png文件，且不超过500kb
+            </div>
           </el-upload>
           <span slot="footer" class="dialog-footer">
             <el-button @click="httpdialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="httpdialogVisible = false">确 定</el-button>
+            <el-button type="primary" @click="httpdialogVisible = false"
+              >确 定</el-button
+            >
           </span>
         </el-dialog>
       </div>
@@ -131,10 +141,10 @@ export default {
       show: false,
       params: {
         token: "123456798",
-        name: "avatar",
+        name: "avatar"
       },
       headers: {
-        smail: "*_~",
+        smail: "*_~"
       },
       imgDataUrl:
         "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif", // the datebase64 url of created imag
@@ -144,8 +154,8 @@ export default {
       actionurl: process.env.VUE_APP_BASE_API + "/testfile/actionupload",
       // action方式设置上传的请求头部
       headers: {
-        Authorization: "Bearer " + getToken(),
-      },
+        Authorization: "Bearer " + getToken()
+      }
     };
   },
   methods: {
@@ -179,7 +189,7 @@ export default {
       if (!filesize) {
         this.$notify({
           message: "文件大小超过300MB",
-          type: "warning",
+          type: "warning"
         });
       }
       return filesize;
@@ -188,13 +198,13 @@ export default {
     actionsuccess(res, file, fileList) {
       this.$notify({
         message: "上传成功",
-        type: "success",
+        type: "success"
       });
     },
     //action方式上传失败回调
     actionerror(res, file, filelist) {
       this.$notify.error({
-        message: "上传失败",
+        message: "上传失败"
       });
     },
     //清除action方式上传列表
@@ -214,8 +224,8 @@ export default {
       //   .catch((error) => {
       //     console.log(error);
       //   });
-    },
-  },
+    }
+  }
 };
 </script>
 
