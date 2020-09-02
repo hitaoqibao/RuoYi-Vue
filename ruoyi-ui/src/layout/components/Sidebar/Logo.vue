@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import logoImg from "@/assets/logo/logo.png";
+import logoImg from "@/assets/image/title.png";
 
 export default {
   name: "SidebarLogo",
