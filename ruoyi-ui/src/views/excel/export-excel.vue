@@ -12,8 +12,7 @@
           icon="el-icon-download"
           @click="handleDownload"
           size="medium"
-          >导出 Excel</el-button
-        >
+        >导出 Excel</el-button>
         <a
           href="https://panjiachen.gitee.io/vue-element-admin-site/zh/feature/component/excel.html#excel-%E5%AF%BC%E5%87%BA"
           target="_blank"
@@ -65,7 +64,8 @@ export default {
       downloadLoading: false,
       filename: "", //文件名
       autoWidth: true, //单元格自动宽度
-      bookType: "xlsx" //文件类型
+      bookType: "xlsx", //文件类型
+      showSearch: true,
     };
   },
   created() {
@@ -76,18 +76,18 @@ export default {
     getlist() {
       this.listloading = true;
       allinfo()
-        .then(response => {
+        .then((response) => {
           this.list = response.data.list;
           this.listloading = false;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     //导出Excel
     handleDownload() {
       this.downloadLoading = true;
-      import("@/vendor/Export2Excel").then(excel => {
+      import("@/vendor/Export2Excel").then((excel) => {
         const tHeader = ["序号", "作品", "作者", "阅读数", "时间"];
         const filterVal = ["id", "title", "author", "readings", "date"];
         const list = this.list;
@@ -97,15 +97,15 @@ export default {
           data,
           filename: this.filename,
           autoWidth: this.autoWidth,
-          bookType: this.bookType
+          bookType: this.bookType,
         });
         this.downloadLoading = false;
       });
     },
     //时间格式化
     formatJson(filterVal, jsonData) {
-      return jsonData.map(v =>
-        filterVal.map(j => {
+      return jsonData.map((v) =>
+        filterVal.map((j) => {
           if (j === "date") {
             return parseTime(v[j]);
           } else {
@@ -113,8 +113,8 @@ export default {
           }
         })
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
