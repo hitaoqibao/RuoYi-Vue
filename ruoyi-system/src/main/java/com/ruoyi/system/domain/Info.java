@@ -3,6 +3,7 @@ package com.ruoyi.system.domain;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ruoyi.common.annotation.Excel;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,26 +28,31 @@ public class Info implements Serializable {
   /**
    * 序号
    */
+  @Excel(name = "序号")
   private Integer id;
 
   /**
    * 作品
    */
+  @Excel(name = "作品")
   private String title;
 
   /**
    * 作者
    */
+  @Excel(name = "作者")
   private String author;
 
   /**
    * 阅读数
    */
+  @Excel(name = "阅读数")
   private Integer readings;
 
   /**
    * 时间
    */
+  @Excel(name = "时间")
   @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   private Date date;

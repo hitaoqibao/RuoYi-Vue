@@ -1,6 +1,11 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" v-show="showSearch" :inline="true">
+    <el-form
+      :model="queryParams"
+      ref="queryForm"
+      v-show="showSearch"
+      :inline="true"
+    >
       <el-form-item label="角色名称" prop="roleName">
         <el-input
           v-model="queryParams.roleName"
@@ -50,8 +55,16 @@
         ></el-date-picker>
       </el-form-item>
       <el-form-item>
-        <el-button type="cyan" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+        <el-button
+          type="cyan"
+          icon="el-icon-search"
+          size="mini"
+          @click="handleQuery"
+          >搜索</el-button
+        >
+        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery"
+          >重置</el-button
+        >
       </el-form-item>
     </el-form>
 
@@ -63,7 +76,8 @@
           size="mini"
           @click="handleAdd"
           v-hasPermi="['system:role:add']"
-        >新增</el-button>
+          >新增</el-button
+        >
       </el-col>
       <el-col :span="1.5">
         <el-button
@@ -73,7 +87,8 @@
           :disabled="single"
           @click="handleUpdate"
           v-hasPermi="['system:role:edit']"
-        >修改</el-button>
+          >修改</el-button
+        >
       </el-col>
       <el-col :span="1.5">
         <el-button
@@ -83,7 +98,8 @@
           :disabled="multiple"
           @click="handleDelete"
           v-hasPermi="['system:role:remove']"
-        >删除</el-button>
+          >删除</el-button
+        >
       </el-col>
       <el-col :span="1.5">
         <el-button
@@ -92,16 +108,34 @@
           size="mini"
           @click="handleExport"
           v-hasPermi="['system:role:export']"
-        >导出</el-button>
+          >导出</el-button
+        >
       </el-col>
-      <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
+      <right-toolbar
+        :showSearch.sync="showSearch"
+        @queryTable="getList"
+      ></right-toolbar>
     </el-row>
 
-    <el-table v-loading="loading" :data="roleList" @selection-change="handleSelectionChange">
+    <el-table
+      v-loading="loading"
+      :data="roleList"
+      @selection-change="handleSelectionChange"
+    >
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="角色编号" prop="roleId" width="120" />
-      <el-table-column label="角色名称" prop="roleName" :show-overflow-tooltip="true" width="150" />
-      <el-table-column label="权限字符" prop="roleKey" :show-overflow-tooltip="true" width="150" />
+      <el-table-column
+        label="角色名称"
+        prop="roleName"
+        :show-overflow-tooltip="true"
+        width="150"
+      />
+      <el-table-column
+        label="权限字符"
+        prop="roleKey"
+        :show-overflow-tooltip="true"
+        width="150"
+      />
       <el-table-column label="显示顺序" prop="roleSort" width="100" />
       <el-table-column label="状态" align="center" width="100">
         <template slot-scope="scope">
@@ -113,12 +147,21 @@
           ></el-switch>
         </template>
       </el-table-column>
-      <el-table-column label="创建时间" align="center" prop="createTime" width="180">
+      <el-table-column
+        label="创建时间"
+        align="center"
+        prop="createTime"
+        width="180"
+      >
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column
+        label="操作"
+        align="center"
+        class-name="small-padding fixed-width"
+      >
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -126,27 +169,30 @@
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
             v-hasPermi="['system:role:edit']"
-          >修改</el-button>
+            >修改</el-button
+          >
           <el-button
             size="mini"
             type="text"
             icon="el-icon-circle-check"
             @click="handleDataScope(scope.row)"
             v-hasPermi="['system:role:edit']"
-          >数据权限</el-button>
+            >数据权限</el-button
+          >
           <el-button
             size="mini"
             type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
             v-hasPermi="['system:role:remove']"
-          >删除</el-button>
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
 
     <pagination
-      v-show="total>0"
+      v-show="total > 0"
       :total="total"
       :page.sync="queryParams.pageNum"
       :limit.sync="queryParams.pageSize"
@@ -163,7 +209,11 @@
           <el-input v-model="form.roleKey" placeholder="请输入权限字符" />
         </el-form-item>
         <el-form-item label="角色顺序" prop="roleSort">
-          <el-input-number v-model="form.roleSort" controls-position="right" :min="0" />
+          <el-input-number
+            v-model="form.roleSort"
+            controls-position="right"
+            :min="0"
+          />
         </el-form-item>
         <el-form-item label="状态">
           <el-radio-group v-model="form.status">
@@ -171,7 +221,8 @@
               v-for="dict in statusOptions"
               :key="dict.dictValue"
               :label="dict.dictValue"
-            >{{dict.dictLabel}}</el-radio>
+              >{{ dict.dictLabel }}</el-radio
+            >
           </el-radio-group>
         </el-form-item>
         <el-form-item label="菜单权限">
@@ -185,7 +236,11 @@
           ></el-tree>
         </el-form-item>
         <el-form-item label="备注">
-          <el-input v-model="form.remark" type="textarea" placeholder="请输入内容"></el-input>
+          <el-input
+            v-model="form.remark"
+            type="textarea"
+            placeholder="请输入内容"
+          ></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -195,7 +250,12 @@
     </el-dialog>
 
     <!-- 分配角色数据权限对话框 -->
-    <el-dialog :title="title" :visible.sync="openDataScope" width="500px" append-to-body>
+    <el-dialog
+      :title="title"
+      :visible.sync="openDataScope"
+      width="500px"
+      append-to-body
+    >
       <el-form :model="form" label-width="80px">
         <el-form-item label="角色名称">
           <el-input v-model="form.roleName" :disabled="true" />
@@ -234,9 +294,24 @@
 </template>
 
 <script>
-import { listRole, getRole, delRole, addRole, updateRole, exportRole, dataScope, changeRoleStatus } from "@/api/system/role";
-import { treeselect as menuTreeselect, roleMenuTreeselect } from "@/api/system/menu";
-import { treeselect as deptTreeselect, roleDeptTreeselect } from "@/api/system/dept";
+import {
+  listRole,
+  getRole,
+  delRole,
+  addRole,
+  updateRole,
+  exportRole,
+  dataScope,
+  changeRoleStatus
+} from "@/api/system/role";
+import {
+  treeselect as menuTreeselect,
+  roleMenuTreeselect
+} from "@/api/system/menu";
+import {
+  treeselect as deptTreeselect,
+  roleDeptTreeselect
+} from "@/api/system/dept";
 
 export default {
   name: "Role",
@@ -386,15 +461,22 @@ export default {
     // 角色状态修改
     handleStatusChange(row) {
       let text = row.status === "0" ? "启用" : "停用";
-      this.$confirm('确认要"' + text + '""' + row.roleName + '"角色吗?', "警告", {
+      this.$confirm(
+        '确认要"' + text + '""' + row.roleName + '"角色吗?',
+        "警告",
+        {
           confirmButtonText: "确定",
           cancelButtonText: "取消",
           type: "warning"
-        }).then(function() {
+        }
+      )
+        .then(function() {
           return changeRoleStatus(row.roleId, row.status);
-        }).then(() => {
+        })
+        .then(() => {
           this.msgSuccess(text + "成功");
-        }).catch(function() {
+        })
+        .catch(function() {
           row.status = row.status === "0" ? "1" : "0";
         });
     },
@@ -438,9 +520,9 @@ export default {
     },
     // 多选框选中数据
     handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.roleId)
-      this.single = selection.length!=1
-      this.multiple = !selection.length
+      this.ids = selection.map(item => item.roleId);
+      this.single = selection.length != 1;
+      this.multiple = !selection.length;
     },
     /** 新增按钮操作 */
     handleAdd() {
@@ -452,7 +534,7 @@ export default {
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
-      const roleId = row.roleId || this.ids
+      const roleId = row.roleId || this.ids;
       const roleMenu = this.getRoleMenuTreeselect(roleId);
       getRole(roleId).then(response => {
         this.form = response.data;
@@ -522,29 +604,39 @@ export default {
     /** 删除按钮操作 */
     handleDelete(row) {
       const roleIds = row.roleId || this.ids;
-      this.$confirm('是否确认删除角色编号为"' + roleIds + '"的数据项?', "警告", {
+      this.$confirm(
+        '是否确认删除角色编号为"' + roleIds + '"的数据项?',
+        "警告",
+        {
           confirmButtonText: "确定",
           cancelButtonText: "取消",
           type: "warning"
-        }).then(function() {
+        }
+      )
+        .then(function() {
           return delRole(roleIds);
-        }).then(() => {
+        })
+        .then(() => {
           this.getList();
           this.msgSuccess("删除成功");
-        }).catch(function() {});
+        })
+        .catch(function() {});
     },
     /** 导出按钮操作 */
     handleExport() {
       const queryParams = this.queryParams;
-      this.$confirm('是否确认导出所有角色数据项?', "警告", {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消",
-          type: "warning"
-        }).then(function() {
+      this.$confirm("是否确认导出所有角色数据项?", "警告", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(function() {
           return exportRole(queryParams);
-        }).then(response => {
+        })
+        .then(response => {
           this.download(response.msg);
-        }).catch(function() {});
+        })
+        .catch(function() {});
     }
   }
 };
