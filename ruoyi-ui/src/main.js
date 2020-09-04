@@ -35,8 +35,21 @@ import Pagination from "@/components/Pagination";
 //自定义表格工具扩展
 import RightToolbar from "@/components/RightToolbar"
 import vRegion from 'v-region' //行政区划选择器
+import VueAMap from 'vue-amap'; //基于Vue 2.0和高德地图的地图组件   https://github.com/ElemeFE/vue-amap
 
 Vue.use(vRegion)
+Vue.use(VueAMap);
+
+// 初始化vue-amap
+VueAMap.initAMapApiLoader({
+  // 高德的key
+  key: 'e5d221b74d0d2e800360dfbe34c28bc8',
+  // 插件集合
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
+  // 高德 sdk 版本，默认为 1.4.4
+  v: '1.4.4'
+});
+
 
 // 全局方法挂载
 Vue.prototype.getDicts = getDicts

@@ -59,6 +59,7 @@
     "sortablejs": "1.8.4",
     "v-region": "^2.2.2",
     "vue": "^2.6.10",
+    "vue-amap": "^0.5.10",
     "vue-count-to": "1.0.13",
     "vue-cropper": "0.4.9",
     "vue-image-crop-upload": "^2.5.0",
