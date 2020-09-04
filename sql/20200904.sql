@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2020-09-02 09:51:08
+Date: 2020-09-04 16:39:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -250,7 +250,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331599005242437', '1599011457935', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331599208377084', '1599208784645', '15000');
 
 -- ----------------------------
 -- Table structure for `qrtz_simple_triggers`
@@ -327,9 +327,9 @@ CREATE TABLE `qrtz_triggers` (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1599005250000', '-1', '5', 'PAUSED', 'CRON', '1599005242000', '0', null, '2', '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1599005250000', '-1', '5', 'PAUSED', 'CRON', '1599005242000', '0', null, '2', '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1599005260000', '-1', '5', 'PAUSED', 'CRON', '1599005242000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1599208380000', '-1', '5', 'PAUSED', 'CRON', '1599208377000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1599208380000', '-1', '5', 'PAUSED', 'CRON', '1599208377000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1599208380000', '-1', '5', 'PAUSED', 'CRON', '1599208377000', '0', null, '2', '');
 
 -- ----------------------------
 -- Table structure for `sys_config`
@@ -354,7 +354,7 @@ CREATE TABLE `sys_config` (
 -- ----------------------------
 INSERT INTO `sys_config` VALUES ('1', '主框架页-默认皮肤样式名称', 'sys.index.skinName', 'skin-blue', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '蓝色 skin-blue、绿色 skin-green、紫色 skin-purple、红色 skin-red、黄色 skin-yellow');
 INSERT INTO `sys_config` VALUES ('2', '用户管理-账号初始密码', 'sys.user.initPassword', '123456', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '初始化密码 123456');
-INSERT INTO `sys_config` VALUES ('3', '主框架页-侧边栏主题', 'sys.index.sideTheme', 'theme-dark', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '深色主题theme-dark，浅色主题theme-light');
+INSERT INTO `sys_config` VALUES ('3', '主框架页-侧边栏主题', 'sys.index.sideTheme', 'theme-light', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2020-09-03 14:06:00', '深色主题theme-dark，浅色主题theme-light');
 
 -- ----------------------------
 -- Table structure for `sys_dept`
@@ -541,7 +541,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -573,6 +573,25 @@ INSERT INTO `sys_logininfor` VALUES ('123', 'admin', '127.0.0.1', '内网IP', 'C
 INSERT INTO `sys_logininfor` VALUES ('124', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 08:07:38');
 INSERT INTO `sys_logininfor` VALUES ('125', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 08:28:52');
 INSERT INTO `sys_logininfor` VALUES ('126', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 09:06:28');
+INSERT INTO `sys_logininfor` VALUES ('127', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '退出成功', '2020-09-02 10:11:40');
+INSERT INTO `sys_logininfor` VALUES ('128', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 10:11:50');
+INSERT INTO `sys_logininfor` VALUES ('129', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 10:20:26');
+INSERT INTO `sys_logininfor` VALUES ('130', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 13:44:04');
+INSERT INTO `sys_logininfor` VALUES ('131', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 14:39:09');
+INSERT INTO `sys_logininfor` VALUES ('132', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-02 15:19:25');
+INSERT INTO `sys_logininfor` VALUES ('133', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-03 08:06:28');
+INSERT INTO `sys_logininfor` VALUES ('134', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-03 10:13:40');
+INSERT INTO `sys_logininfor` VALUES ('135', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '退出成功', '2020-09-03 11:41:10');
+INSERT INTO `sys_logininfor` VALUES ('136', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-03 11:41:32');
+INSERT INTO `sys_logininfor` VALUES ('137', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-03 13:49:40');
+INSERT INTO `sys_logininfor` VALUES ('138', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-03 16:36:08');
+INSERT INTO `sys_logininfor` VALUES ('139', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-03 17:00:30');
+INSERT INTO `sys_logininfor` VALUES ('140', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 08:14:53');
+INSERT INTO `sys_logininfor` VALUES ('141', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 09:22:08');
+INSERT INTO `sys_logininfor` VALUES ('142', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 11:46:36');
+INSERT INTO `sys_logininfor` VALUES ('143', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 13:37:35');
+INSERT INTO `sys_logininfor` VALUES ('144', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 16:02:18');
+INSERT INTO `sys_logininfor` VALUES ('145', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 16:28:40');
 
 -- ----------------------------
 -- Table structure for `sys_menu`
@@ -639,13 +658,17 @@ INSERT INTO `sys_menu` VALUES ('125', '文件上传', '4', '10', 'avatar-upload'
 INSERT INTO `sys_menu` VALUES ('126', '视频播放器', '4', '11', 'video', 'components-demo/video', '1', 'C', '0', '0', 'components-demo:video:list', '', 'admin', '2020-09-01 11:21:42', '', null, '视频播放器');
 INSERT INTO `sys_menu` VALUES ('127', '音乐播放器', '4', '12', 'music', 'components-demo/music', '1', 'C', '0', '0', 'components-demo:music:list', '', 'admin', '2020-08-31 08:22:03', '', null, '音乐播放器');
 INSERT INTO `sys_menu` VALUES ('128', '行政区选择器', '4', '13', 'region', 'components-demo/region', '1', 'C', '0', '0', 'components-demo:region:list', '', 'admin', '2020-08-31 08:32:07', '', null, '行政区选择器');
+INSERT INTO `sys_menu` VALUES ('129', '表单控件', '4', '14', 'formcontrol', 'components-demo/formcontrol', '1', 'C', '0', '0', 'components-demo:formcontrol:list', '', 'admin', '2020-09-02 16:12:57', '', null, '表单控件');
+INSERT INTO `sys_menu` VALUES ('130', '高德地图', '4', '15', 'amap', 'components-demo/amap', '1', 'C', '0', '0', null, '', 'admin', '2020-09-04 09:21:05', '', null, '高德地图');
+INSERT INTO `sys_menu` VALUES ('131', '写着玩', '4', '16', 'test', 'components-demo/test', '1', 'C', '0', '0', '', '', 'admin', '2020-09-03 15:28:18', '', null, '练习');
 INSERT INTO `sys_menu` VALUES ('200', '动态表格', '5', '1', 'dynamic-table', 'table/dynamic-table', '1', 'C', '0', '0', 'table:dynamic-table:list', '', 'admin', '2020-09-01 17:25:52', '', null, '动态表格');
 INSERT INTO `sys_menu` VALUES ('201', '拖拽表格', '5', '2', 'drag-table', 'table/drag-table', '1', 'C', '0', '0', 'table:drag-table:list', '', 'admin', '2020-09-01 18:05:32', '', null, '拖拽表格');
 INSERT INTO `sys_menu` VALUES ('202', '表格内编辑', '5', '3', 'inline-edit-table', 'table/inline-edit-table', '1', 'C', '0', '0', 'table:inline-edit-table:list', '', 'admin', '2020-09-01 18:08:52', '', '2020-09-01 18:08:54', '表格内编辑');
-INSERT INTO `sys_menu` VALUES ('300', '前端 导出Excel', '6', '1', 'export-excel', 'excel/export-excel', '1', 'C', '0', '0', 'excel:info:list', '', 'amdin', '2020-09-01 18:31:50', '', '2020-09-01 18:31:52', '前端导出Excel');
-INSERT INTO `sys_menu` VALUES ('301', '前端 导出选择项', '6', '2', 'select-excel', 'excel/select-excel', '1', 'C', '0', '0', 'excel:info:list', '', 'admin', '2020-09-01 19:34:56', '', null, '前端导出选择项');
-INSERT INTO `sys_menu` VALUES ('302', '前端 导出多级表头', '6', '3', 'merge-header', 'excel/merge-header', '1', 'C', '0', '0', 'excel:info:list', '', 'admin', '2020-09-02 08:32:01', '', '2020-09-02 08:32:12', '前端导出多级表头');
-INSERT INTO `sys_menu` VALUES ('303', '前端 导入Excel', '6', '4', 'upload-excel', 'excel/upload-excel', '1', 'C', '0', '0', 'excel:upload-excel:list', '', 'admin', '2020-09-02 08:38:26', '', null, '前端导入Excel');
+INSERT INTO `sys_menu` VALUES ('300', '前端 导入Excel', '6', '1', 'upload-excel', 'excel/upload-excel', '1', 'C', '0', '0', 'excel:upload-excel:list', '', 'admin', '2020-09-02 08:38:26', '', null, '前端导入Excel');
+INSERT INTO `sys_menu` VALUES ('301', '前端 导出多级表头', '6', '2', 'merge-header', 'excel/merge-header', '1', 'C', '0', '0', 'excel:info:list', '', 'admin', '2020-09-02 08:32:01', '', '2020-09-02 08:32:12', '前端导出多级表头');
+INSERT INTO `sys_menu` VALUES ('302', '前端 导出选择项', '6', '3', 'select-excel', 'excel/select-excel', '1', 'C', '0', '0', 'excel:info:list', '', 'admin', '2020-09-01 19:34:56', '', null, '前端导出选择项');
+INSERT INTO `sys_menu` VALUES ('303', '前端 导出Excel', '6', '4', 'export-excel', 'excel/export-excel', '1', 'C', '0', '0', 'excel:info:list', '', 'amdin', '2020-09-01 18:31:50', '', '2020-09-01 18:31:52', '前端导出Excel');
+INSERT INTO `sys_menu` VALUES ('304', '后端 导出Excel', '6', '5', 'end-export-excel', 'excel/end-export-excel', '1', 'C', '0', '0', 'excel:end-export-excel:list', '', 'admin', '2020-09-04 14:21:03', '', null, '后端导出Excel');
 INSERT INTO `sys_menu` VALUES ('400', '导出zip', '7', '1', 'export-zip', 'zip/export-zip', '1', 'C', '0', '0', 'zip:export-zip:list', '', 'admin', '2020-09-02 09:09:05', '', null, '导出zip');
 INSERT INTO `sys_menu` VALUES ('450', '401', '8', '1', '401', 'error/401', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:43:50', '', null, '401页面');
 INSERT INTO `sys_menu` VALUES ('451', '404', '8', '2', '404', 'error/404', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:44:38', '', null, '404页面');
@@ -758,11 +781,26 @@ CREATE TABLE `sys_oper_log` (
   `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
 
 -- ----------------------------
 -- Records of sys_oper_log
 -- ----------------------------
+INSERT INTO `sys_oper_log` VALUES ('1', '用户管理', '6', 'com.ruoyi.web.controller.system.SysUserController.importData()', 'POST', '1', 'admin', null, '/system/user/importData', '127.0.0.1', '内网IP', 'false', 'null', '1', '', '2020-09-03 14:04:46');
+INSERT INTO `sys_oper_log` VALUES ('2', '字典类型', '9', 'com.ruoyi.web.controller.system.SysDictTypeController.clearCache()', 'DELETE', '1', 'admin', null, '/system/dict/type/clearCache', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', '0', null, '2020-09-03 14:05:24');
+INSERT INTO `sys_oper_log` VALUES ('3', '字典类型', '9', 'com.ruoyi.web.controller.system.SysDictTypeController.clearCache()', 'DELETE', '1', 'admin', null, '/system/dict/type/clearCache', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', '0', null, '2020-09-03 14:05:25');
+INSERT INTO `sys_oper_log` VALUES ('4', '字典类型', '9', 'com.ruoyi.web.controller.system.SysDictTypeController.clearCache()', 'DELETE', '1', 'admin', null, '/system/dict/type/clearCache', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', '0', null, '2020-09-03 14:05:26');
+INSERT INTO `sys_oper_log` VALUES ('5', '参数管理', '2', 'com.ruoyi.web.controller.system.SysConfigController.edit()', 'PUT', '1', 'admin', null, '/system/config', '127.0.0.1', '内网IP', '{\"configName\":\"主框架页-侧边栏主题\",\"remark\":\"深色主题theme-dark，浅色主题theme-light\",\"updateTime\":1521171180000,\"configType\":\"Y\",\"configValue\":\"theme-light\",\"params\":{},\"configKey\":\"sys.index.sideTheme\",\"createBy\":\"admin\",\"createTime\":1521171180000,\"updateBy\":\"admin\",\"configId\":3}', '{\"msg\":\"操作成功\",\"code\":200}', '0', null, '2020-09-03 14:06:00');
+INSERT INTO `sys_oper_log` VALUES ('6', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"cc0106d0-d767-4a22-b03c-f0f9ce324aec_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 13:42:19');
+INSERT INTO `sys_oper_log` VALUES ('7', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"ecea331b-3a1b-43b6-a7e4-292c5e1e8ad6_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 13:48:47');
+INSERT INTO `sys_oper_log` VALUES ('8', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"da236516-3cd8-4561-92e2-7193184a518b_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:00:36');
+INSERT INTO `sys_oper_log` VALUES ('9', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"1a51b985-cf4e-474d-b624-12b3d4bb2c33_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:04:14');
+INSERT INTO `sys_oper_log` VALUES ('10', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"2401cbff-4aa9-412e-a38f-ff437cf4ba25_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:10:47');
+INSERT INTO `sys_oper_log` VALUES ('11', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"69a2bfb2-7530-4a22-84cb-902bc01d98ca_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:10:57');
+INSERT INTO `sys_oper_log` VALUES ('12', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"21c48169-0217-4c0c-90ed-835cb03e4d9d_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:11:45');
+INSERT INTO `sys_oper_log` VALUES ('13', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"033d714c-4e4a-4dfe-beee-ebc4c0edc6b9_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:11:54');
+INSERT INTO `sys_oper_log` VALUES ('14', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"d14aeaca-859b-41a7-9fe3-21e310072d0b_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:30:25');
+INSERT INTO `sys_oper_log` VALUES ('15', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"ac1f3df4-ece9-46df-80cc-7fc9498fdf54_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 16:05:25');
 
 -- ----------------------------
 -- Table structure for `sys_post`
