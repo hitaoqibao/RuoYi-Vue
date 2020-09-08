@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2020-09-04 16:39:44
+Date: 2020-09-08 17:15:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -88,8 +88,7 @@ CREATE TABLE `info` (
   `title` varchar(50) DEFAULT NULL COMMENT '作品',
   `author` varchar(50) DEFAULT NULL COMMENT '作者',
   `readings` int(11) DEFAULT NULL COMMENT '阅读数',
-  `date` datetime DEFAULT NULL COMMENT '时间',
-  PRIMARY KEY (`id`)
+  `date` varchar(50) DEFAULT NULL COMMENT '时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='信息表';
 
 -- ----------------------------
@@ -250,7 +249,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331599208377084', '1599208784645', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331599555719770', '1599556491309', '15000');
 
 -- ----------------------------
 -- Table structure for `qrtz_simple_triggers`
@@ -327,9 +326,9 @@ CREATE TABLE `qrtz_triggers` (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1599208380000', '-1', '5', 'PAUSED', 'CRON', '1599208377000', '0', null, '2', '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1599208380000', '-1', '5', 'PAUSED', 'CRON', '1599208377000', '0', null, '2', '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1599208380000', '-1', '5', 'PAUSED', 'CRON', '1599208377000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1599555720000', '-1', '5', 'PAUSED', 'CRON', '1599555719000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1599555720000', '-1', '5', 'PAUSED', 'CRON', '1599555719000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1599555720000', '-1', '5', 'PAUSED', 'CRON', '1599555719000', '0', null, '2', '');
 
 -- ----------------------------
 -- Table structure for `sys_config`
@@ -541,7 +540,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -592,6 +591,18 @@ INSERT INTO `sys_logininfor` VALUES ('142', 'admin', '127.0.0.1', '内网IP', 'C
 INSERT INTO `sys_logininfor` VALUES ('143', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 13:37:35');
 INSERT INTO `sys_logininfor` VALUES ('144', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 16:02:18');
 INSERT INTO `sys_logininfor` VALUES ('145', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-04 16:28:40');
+INSERT INTO `sys_logininfor` VALUES ('146', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-07 08:10:27');
+INSERT INTO `sys_logininfor` VALUES ('147', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-07 10:42:14');
+INSERT INTO `sys_logininfor` VALUES ('148', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-07 14:58:34');
+INSERT INTO `sys_logininfor` VALUES ('149', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-07 16:32:40');
+INSERT INTO `sys_logininfor` VALUES ('150', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 14:02:54');
+INSERT INTO `sys_logininfor` VALUES ('151', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:42:59');
+INSERT INTO `sys_logininfor` VALUES ('152', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:45:04');
+INSERT INTO `sys_logininfor` VALUES ('153', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:49:06');
+INSERT INTO `sys_logininfor` VALUES ('154', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:49:57');
+INSERT INTO `sys_logininfor` VALUES ('155', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:53:44');
+INSERT INTO `sys_logininfor` VALUES ('156', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:54:38');
+INSERT INTO `sys_logininfor` VALUES ('157', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:55:22');
 
 -- ----------------------------
 -- Table structure for `sys_menu`
@@ -669,6 +680,7 @@ INSERT INTO `sys_menu` VALUES ('301', '前端 导出多级表头', '6', '2', 'me
 INSERT INTO `sys_menu` VALUES ('302', '前端 导出选择项', '6', '3', 'select-excel', 'excel/select-excel', '1', 'C', '0', '0', 'excel:info:list', '', 'admin', '2020-09-01 19:34:56', '', null, '前端导出选择项');
 INSERT INTO `sys_menu` VALUES ('303', '前端 导出Excel', '6', '4', 'export-excel', 'excel/export-excel', '1', 'C', '0', '0', 'excel:info:list', '', 'amdin', '2020-09-01 18:31:50', '', '2020-09-01 18:31:52', '前端导出Excel');
 INSERT INTO `sys_menu` VALUES ('304', '后端 导出Excel', '6', '5', 'end-export-excel', 'excel/end-export-excel', '1', 'C', '0', '0', 'excel:end-export-excel:list', '', 'admin', '2020-09-04 14:21:03', '', null, '后端导出Excel');
+INSERT INTO `sys_menu` VALUES ('305', '后端 导入Excel', '6', '6', 'end-upload-excel', 'excel/end-upload-excel', '1', 'C', '0', '0', 'excel:end-upload-excel:list', '', 'admin', '2020-09-08 14:41:51', '', null, '后端导入Excel');
 INSERT INTO `sys_menu` VALUES ('400', '导出zip', '7', '1', 'export-zip', 'zip/export-zip', '1', 'C', '0', '0', 'zip:export-zip:list', '', 'admin', '2020-09-02 09:09:05', '', null, '导出zip');
 INSERT INTO `sys_menu` VALUES ('450', '401', '8', '1', '401', 'error/401', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:43:50', '', null, '401页面');
 INSERT INTO `sys_menu` VALUES ('451', '404', '8', '2', '404', 'error/404', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:44:38', '', null, '404页面');
@@ -781,7 +793,7 @@ CREATE TABLE `sys_oper_log` (
   `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -801,6 +813,11 @@ INSERT INTO `sys_oper_log` VALUES ('12', '角色管理', '5', 'com.ruoyi.web.con
 INSERT INTO `sys_oper_log` VALUES ('13', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"033d714c-4e4a-4dfe-beee-ebc4c0edc6b9_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:11:54');
 INSERT INTO `sys_oper_log` VALUES ('14', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"d14aeaca-859b-41a7-9fe3-21e310072d0b_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 15:30:25');
 INSERT INTO `sys_oper_log` VALUES ('15', '角色管理', '5', 'com.ruoyi.web.controller.system.SysRoleController.export()', 'GET', '1', 'admin', null, '/system/role/export', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"ac1f3df4-ece9-46df-80cc-7fc9498fdf54_角色数据.xlsx\",\"code\":200}', '0', null, '2020-09-04 16:05:25');
+INSERT INTO `sys_oper_log` VALUES ('16', '用户管理', '6', 'com.ruoyi.web.controller.system.SysUserController.importData()', 'POST', '1', 'admin', null, '/system/user/importData', '127.0.0.1', '内网IP', 'false', 'null', '1', '', '2020-09-07 16:33:31');
+INSERT INTO `sys_oper_log` VALUES ('17', '用户管理', '6', 'com.ruoyi.web.controller.system.SysUserController.importData()', 'POST', '1', 'admin', null, '/system/user/importData', '127.0.0.1', '内网IP', 'false', 'null', '1', '', '2020-09-07 16:54:43');
+INSERT INTO `sys_oper_log` VALUES ('18', '用户管理', '6', 'com.ruoyi.web.controller.system.SysUserController.importData()', 'POST', '1', 'admin', null, '/system/user/importData', '127.0.0.1', '内网IP', 'false', '{\"msg\":\"恭喜您，数据已全部导入成功！共 1 条，数据如下：<br/>1、账号 bao 导入成功\",\"code\":200}', '0', null, '2020-09-08 15:26:21');
+INSERT INTO `sys_oper_log` VALUES ('19', '用户管理', '6', 'com.ruoyi.web.controller.system.SysUserController.importData()', 'POST', '1', 'admin', null, '/system/user/importData', '127.0.0.1', '内网IP', 'false', 'null', '1', '很抱歉，导入失败！共 1 条数据格式不正确，错误如下：<br/>1、账号 bao 已存在', '2020-09-08 15:26:49');
+INSERT INTO `sys_oper_log` VALUES ('20', '用户管理', '3', 'com.ruoyi.web.controller.system.SysUserController.remove()', 'DELETE', '1', 'admin', null, '/system/user/10', '127.0.0.1', '内网IP', '{userIds=10}', '{\"msg\":\"操作成功\",\"code\":200}', '0', null, '2020-09-08 15:28:04');
 
 -- ----------------------------
 -- Table structure for `sys_post`
@@ -993,13 +1010,14 @@ CREATE TABLE `sys_user` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
 INSERT INTO `sys_user` VALUES ('1', '103', 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2018-03-16 11:33:00', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '管理员');
 INSERT INTO `sys_user` VALUES ('2', '105', 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2018-03-16 11:33:00', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '测试员');
+INSERT INTO `sys_user` VALUES ('10', '103', 'bao', 'bao', '00', '111@qq.com', '1588888888', '0', '', '$2a$10$BAxM/pDQOn/3ObcZ2KF24ez1Lu3wWeMSrMyGX6XZF2lqDL5bR7upe', '0', '2', '', null, 'admin', '2020-09-08 15:26:21', '', null, null);
 
 -- ----------------------------
 -- Table structure for `sys_user_post`
