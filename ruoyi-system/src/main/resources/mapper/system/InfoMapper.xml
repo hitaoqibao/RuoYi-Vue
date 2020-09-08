@@ -13,5 +13,21 @@
 
   <select id="selectinfo" parameterType="Info" resultMap="InfoResult">
         select * from info;
-    </select>
+  </select>
+
+  <insert id="insertInfo" parameterType="Info">
+    insert into info(
+    <if test="id!=null and id!=0">id,</if>
+    <if test="title!=null and title!=''">title,</if>
+    <if test="author!=null and author!=''">author,</if>
+    <if test="readings!=null and readings!=''">readings,</if>
+    <if test="date!=null and date!=''">date</if>
+    ) values (
+    <if test="id!=null and id!=0">#{id},</if>
+    <if test="title!=null and title!=''">#{title},</if>
+    <if test="author!=null and author!=''">#{author},</if>
+    <if test="readings!=null and readings!=''">#{readings},</if>
+    <if test="date!=null and date!=''">#{date}</if>
+    )
+  </insert>
 </mapper>

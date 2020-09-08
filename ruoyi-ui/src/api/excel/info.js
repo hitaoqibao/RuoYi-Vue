@@ -18,3 +18,11 @@ export function exportExcel(filename) {
     }
   })
 }
+
+// 下载导入模板
+export function importTemplate() {
+  return request({
+    url: '/info/importTemplate',
+    method: 'get'
+  })
+}

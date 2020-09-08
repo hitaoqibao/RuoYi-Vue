@@ -11,10 +11,13 @@ import com.ruoyi.system.domain.Info;
  */
 public interface InfoMapper {
 
-    /**
-     * 查询信息表所有数据
-     * 
-     * @return 数据表数据
-     */
-    public List<Info> selectinfo();
+  /**
+   * 查询信息表所有数据
+   * 
+   * @return 数据表数据
+   */
+  public List<Info> selectinfo();
+
+  // 新增信息表数据
+  public int insertInfo(Info info);
 }
