@@ -1,11 +1,6 @@
 package com.ruoyi.system.domain;
 
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ruoyi.common.annotation.Excel;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import lombok.Data;
