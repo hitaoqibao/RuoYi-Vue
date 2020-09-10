@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2020-09-08 17:15:05
+Date: 2020-09-10 19:09:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -249,7 +249,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331599555719770', '1599556491309', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331599696733146', '1599736147701', '15000');
 
 -- ----------------------------
 -- Table structure for `qrtz_simple_triggers`
@@ -326,9 +326,9 @@ CREATE TABLE `qrtz_triggers` (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1599555720000', '-1', '5', 'PAUSED', 'CRON', '1599555719000', '0', null, '2', '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1599555720000', '-1', '5', 'PAUSED', 'CRON', '1599555719000', '0', null, '2', '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1599555720000', '-1', '5', 'PAUSED', 'CRON', '1599555719000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', null, '1599696740000', '-1', '5', 'PAUSED', 'CRON', '1599696733000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', null, '1599696735000', '-1', '5', 'PAUSED', 'CRON', '1599696733000', '0', null, '2', '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', null, '1599696740000', '-1', '5', 'PAUSED', 'CRON', '1599696733000', '0', null, '2', '');
 
 -- ----------------------------
 -- Table structure for `sys_config`
@@ -540,7 +540,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -603,6 +603,18 @@ INSERT INTO `sys_logininfor` VALUES ('154', 'admin', '127.0.0.1', '内网IP', 'C
 INSERT INTO `sys_logininfor` VALUES ('155', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:53:44');
 INSERT INTO `sys_logininfor` VALUES ('156', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:54:38');
 INSERT INTO `sys_logininfor` VALUES ('157', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 16:55:22');
+INSERT INTO `sys_logininfor` VALUES ('158', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 18:08:24');
+INSERT INTO `sys_logininfor` VALUES ('159', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-08 18:11:01');
+INSERT INTO `sys_logininfor` VALUES ('160', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-09 08:06:53');
+INSERT INTO `sys_logininfor` VALUES ('161', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-09 11:23:34');
+INSERT INTO `sys_logininfor` VALUES ('162', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-09 14:00:48');
+INSERT INTO `sys_logininfor` VALUES ('163', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-09 16:50:22');
+INSERT INTO `sys_logininfor` VALUES ('164', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-09 16:56:32');
+INSERT INTO `sys_logininfor` VALUES ('165', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-09 18:02:42');
+INSERT INTO `sys_logininfor` VALUES ('166', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-10 08:12:33');
+INSERT INTO `sys_logininfor` VALUES ('167', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-10 11:08:51');
+INSERT INTO `sys_logininfor` VALUES ('168', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-10 14:01:15');
+INSERT INTO `sys_logininfor` VALUES ('169', 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-09-10 16:37:57');
 
 -- ----------------------------
 -- Table structure for `sys_menu`
@@ -635,11 +647,12 @@ CREATE TABLE `sys_menu` (
 INSERT INTO `sys_menu` VALUES ('1', '系统管理', '0', '1', 'system', null, '1', 'M', '0', '0', '', 'system', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统管理目录');
 INSERT INTO `sys_menu` VALUES ('2', '系统监控', '0', '2', 'monitor', null, '1', 'M', '0', '0', '', 'monitor', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统监控目录');
 INSERT INTO `sys_menu` VALUES ('3', '系统工具', '0', '3', 'tool', null, '1', 'M', '0', '0', '', 'tool', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统工具目录');
-INSERT INTO `sys_menu` VALUES ('4', '组件', '0', '4', 'components-demo', null, '1', 'M', '0', '0', null, 'component', 'admin', '2020-08-26 11:57:48', 'ry', '2020-08-26 11:57:58', '综合组件');
+INSERT INTO `sys_menu` VALUES ('4', '组件管理', '0', '4', 'components-demo', null, '1', 'M', '0', '0', null, 'component', 'admin', '2020-08-26 11:57:48', 'ry', '2020-08-26 11:57:58', '综合组件');
 INSERT INTO `sys_menu` VALUES ('5', '表格', '0', '5', 'table', null, '1', 'M', '0', '0', null, 'table', 'admin', '2020-09-01 17:17:38', 'admin', '2020-09-01 17:17:40', '表格');
 INSERT INTO `sys_menu` VALUES ('6', 'Excel', '0', '6', 'excel', null, '1', 'M', '0', '0', null, 'excel', 'admin', '2020-09-01 18:12:13', 'admin', '2020-09-01 18:12:22', 'excel');
 INSERT INTO `sys_menu` VALUES ('7', 'Zip', '0', '7', 'zip', null, '1', 'M', '0', '0', null, 'zip', 'admin', '2020-09-02 09:02:22', 'admin', '2020-09-02 09:02:32', 'zip');
-INSERT INTO `sys_menu` VALUES ('8', '错误页面', '0', '8', 'error', null, '1', 'M', '0', '0', null, '404', 'admin', '2020-09-02 09:38:50', 'admin', '2020-09-02 09:38:57', '错误页面');
+INSERT INTO `sys_menu` VALUES ('8', 'PDF', '0', '8', 'pdf', null, '1', 'M', '0', '0', null, 'pdf', 'admin', '2020-09-09 08:51:11', 'admin', '2020-09-09 08:51:21', 'pdf');
+INSERT INTO `sys_menu` VALUES ('9', '错误页面', '0', '9', 'error', null, '1', 'M', '0', '0', null, '404', 'admin', '2020-09-02 09:38:50', 'admin', '2020-09-02 09:38:57', '错误页面');
 INSERT INTO `sys_menu` VALUES ('100', '用户管理', '1', '1', 'user', 'system/user/index', '1', 'C', '0', '0', 'system:user:list', 'user', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户管理菜单');
 INSERT INTO `sys_menu` VALUES ('101', '角色管理', '1', '2', 'role', 'system/role/index', '1', 'C', '0', '0', 'system:role:list', 'peoples', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '角色管理菜单');
 INSERT INTO `sys_menu` VALUES ('102', '菜单管理', '1', '3', 'menu', 'system/menu/index', '1', 'C', '0', '0', 'system:menu:list', 'tree-table', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单管理菜单');
@@ -671,7 +684,8 @@ INSERT INTO `sys_menu` VALUES ('127', '音乐播放器', '4', '12', 'music', 'co
 INSERT INTO `sys_menu` VALUES ('128', '行政区选择器', '4', '13', 'region', 'components-demo/region', '1', 'C', '0', '0', 'components-demo:region:list', '', 'admin', '2020-08-31 08:32:07', '', null, '行政区选择器');
 INSERT INTO `sys_menu` VALUES ('129', '表单控件', '4', '14', 'formcontrol', 'components-demo/formcontrol', '1', 'C', '0', '0', 'components-demo:formcontrol:list', '', 'admin', '2020-09-02 16:12:57', '', null, '表单控件');
 INSERT INTO `sys_menu` VALUES ('130', '高德地图', '4', '15', 'amap', 'components-demo/amap', '1', 'C', '0', '0', null, '', 'admin', '2020-09-04 09:21:05', '', null, '高德地图');
-INSERT INTO `sys_menu` VALUES ('131', '写着玩', '4', '16', 'test', 'components-demo/test', '1', 'C', '0', '0', '', '', 'admin', '2020-09-03 15:28:18', '', null, '练习');
+INSERT INTO `sys_menu` VALUES ('131', '卡片特效', '4', '16', 'image', 'components-demo/image', '1', 'C', '0', '0', null, '', 'admin', '2020-09-10 11:16:23', '', null, '卡片特效');
+INSERT INTO `sys_menu` VALUES ('132', '写着玩', '4', '17', 'test', 'components-demo/test', '1', 'C', '0', '0', '', '', 'admin', '2020-09-03 15:28:18', '', null, '练习');
 INSERT INTO `sys_menu` VALUES ('200', '动态表格', '5', '1', 'dynamic-table', 'table/dynamic-table', '1', 'C', '0', '0', 'table:dynamic-table:list', '', 'admin', '2020-09-01 17:25:52', '', null, '动态表格');
 INSERT INTO `sys_menu` VALUES ('201', '拖拽表格', '5', '2', 'drag-table', 'table/drag-table', '1', 'C', '0', '0', 'table:drag-table:list', '', 'admin', '2020-09-01 18:05:32', '', null, '拖拽表格');
 INSERT INTO `sys_menu` VALUES ('202', '表格内编辑', '5', '3', 'inline-edit-table', 'table/inline-edit-table', '1', 'C', '0', '0', 'table:inline-edit-table:list', '', 'admin', '2020-09-01 18:08:52', '', '2020-09-01 18:08:54', '表格内编辑');
@@ -682,8 +696,9 @@ INSERT INTO `sys_menu` VALUES ('303', '前端 导出Excel', '6', '4', 'export-ex
 INSERT INTO `sys_menu` VALUES ('304', '后端 导出Excel', '6', '5', 'end-export-excel', 'excel/end-export-excel', '1', 'C', '0', '0', 'excel:end-export-excel:list', '', 'admin', '2020-09-04 14:21:03', '', null, '后端导出Excel');
 INSERT INTO `sys_menu` VALUES ('305', '后端 导入Excel', '6', '6', 'end-upload-excel', 'excel/end-upload-excel', '1', 'C', '0', '0', 'excel:end-upload-excel:list', '', 'admin', '2020-09-08 14:41:51', '', null, '后端导入Excel');
 INSERT INTO `sys_menu` VALUES ('400', '导出zip', '7', '1', 'export-zip', 'zip/export-zip', '1', 'C', '0', '0', 'zip:export-zip:list', '', 'admin', '2020-09-02 09:09:05', '', null, '导出zip');
-INSERT INTO `sys_menu` VALUES ('450', '401', '8', '1', '401', 'error/401', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:43:50', '', null, '401页面');
-INSERT INTO `sys_menu` VALUES ('451', '404', '8', '2', '404', 'error/404', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:44:38', '', null, '404页面');
+INSERT INTO `sys_menu` VALUES ('425', 'pdf预览', '8', '1', 'open-pdf', 'pdf/open-pdf', '1', 'C', '0', '0', 'pdf:open-pdf:list', '', 'admin', '2020-09-09 08:55:29', '', null, '打开pdf');
+INSERT INTO `sys_menu` VALUES ('450', '401', '9', '1', '401', 'error/401', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:43:50', '', null, '401页面');
+INSERT INTO `sys_menu` VALUES ('451', '404', '9', '2', '404', 'error/404', '1', 'C', '0', '0', null, '', 'admin', '2020-09-02 09:44:38', '', null, '404页面');
 INSERT INTO `sys_menu` VALUES ('500', '操作日志', '108', '1', 'operlog', 'monitor/operlog/index', '1', 'C', '0', '0', 'monitor:operlog:list', 'form', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作日志菜单');
 INSERT INTO `sys_menu` VALUES ('501', '登录日志', '108', '2', 'logininfor', 'monitor/logininfor/index', '1', 'C', '0', '0', 'monitor:logininfor:list', 'logininfor', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录日志菜单');
 INSERT INTO `sys_menu` VALUES ('1001', '用户查询', '100', '1', '', '', '1', 'F', '0', '0', 'system:user:query', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
