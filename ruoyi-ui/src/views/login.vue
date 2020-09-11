@@ -33,7 +33,7 @@
           <img :src="codeUrl" @click="getCode" class="login-code-img" />
         </div>
       </el-form-item>
-      <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
+      <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 20px 0px;">记住密码</el-checkbox>
       <el-form-item style="width:100%;">
         <el-button
           :loading="loading"
@@ -46,10 +46,21 @@
           <span v-else>登 录 中...</span>
         </el-button>
       </el-form-item>
+      <el-form-item>
+        <p class="other-ways">
+          其他方式登录
+          <svg-icon v-for="i in otherWays" :key="i" :icon-class="i" @click="thirdPartyLogin(i)" />
+        </p>
+        <el-button
+          style="float:right;margin-top:-10px;margin-bottom: -10px"
+          type="text"
+          @click="register"
+        >注册账户</el-button>
+      </el-form-item>
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2019-2020 anybody All Rights Reserved.</span>
+      <span>Copyright © 2019-2020 anyone All Rights Reserved.</span>
     </div>
   </div>
 </template>
@@ -85,6 +96,7 @@ export default {
       },
       loading: false,
       redirect: undefined,
+      otherWays: ["qq", "wechat", "weibo"],
     };
   },
   watch: {
@@ -100,6 +112,13 @@ export default {
     this.getCookie();
   },
   methods: {
+    thirdPartyLogin(channel) {
+      this.$message.info("假装可以第三方登录");
+    },
+    //注册
+    register() {
+      this.$message.info("开发中...");
+    },
     getCode() {
       getCodeImg().then((res) => {
         this.codeUrl = "data:image/gif;base64," + res.img;
@@ -210,5 +229,20 @@ export default {
 }
 .login-code-img {
   height: 38px;
+}
+.other-ways {
+  float: left;
+  color: #707070;
+  margin-top: -10px;
+  margin-bottom: -10px;
+
+  svg {
+    cursor: pointer;
+    margin-left: 10px;
+
+    &:hover {
+      color: #1890ff;
+    }
+  }
 }
 </style>
