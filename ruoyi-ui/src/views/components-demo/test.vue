@@ -46,6 +46,22 @@
         </div>
       </div>
     </div>
+    <el-divider content-position="left">
+      基于
+      <a class="link-type" href="https://github.com/lulin1/vue-particles"
+        >vue-particles</a
+      >
+      网状粒子
+    </el-divider>
+    <div class="particles">
+      <vue-particles
+        color="#1890ff"
+        linesColor="#1890ff"
+        particlesNumber="200"
+        lineOpacity="1"
+        moveSpeed="5"
+      ></vue-particles>
+    </div>
   </div>
 </template>
 
@@ -156,5 +172,8 @@ export default {
       }
     }
   }
+}
+.particles {
+  height: 200px;
 }
 </style>

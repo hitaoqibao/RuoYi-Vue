@@ -36,7 +36,9 @@ import Pagination from "@/components/Pagination";
 import RightToolbar from "@/components/RightToolbar"
 import vRegion from 'v-region' //行政区划选择器
 import VueAMap from 'vue-amap'; //基于Vue 2.0和高德地图的地图组件   https://github.com/ElemeFE/vue-amap
+import VueParticles from 'vue-particles' //网状粒子
 
+Vue.use(VueParticles)
 Vue.use(vRegion)
 Vue.use(VueAMap);
 
