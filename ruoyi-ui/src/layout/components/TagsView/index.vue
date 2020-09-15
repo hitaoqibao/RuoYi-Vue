@@ -44,7 +44,6 @@
 <script>
 import ScrollPane from "./ScrollPane";
 import path from "path";
-
 export default {
   components: { ScrollPane },
   data() {
@@ -221,13 +220,11 @@ export default {
       const offsetWidth = this.$el.offsetWidth; // container width
       const maxLeft = offsetWidth - menuMinWidth; // left boundary
       const left = e.clientX - offsetLeft + 15; // 15: margin right
-
       if (left > maxLeft) {
         this.left = maxLeft;
       } else {
         this.left = left;
       }
-
       this.top = e.clientY;
       this.visible = true;
       this.selectedTag = tag;
