@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2020-09-17 18:44:35
+Date: 2020-09-17 19:21:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -249,7 +249,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331600301470371', '1600339461966', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'FSPC80714331600301470371', '1600341667381', '15000');
 
 -- ----------------------------
 -- Table structure for `qrtz_simple_triggers`
@@ -721,7 +721,8 @@ INSERT INTO `sys_menu` VALUES ('129', '表单控件', '4', '14', 'formcontrol', 
 INSERT INTO `sys_menu` VALUES ('130', '高德地图', '4', '15', 'amap', 'components-demo/amap', '1', 'C', '0', '0', null, '', 'admin', '2020-09-04 09:21:05', '', null, '高德地图');
 INSERT INTO `sys_menu` VALUES ('131', '卡片特效', '4', '16', 'image', 'components-demo/image', '1', 'C', '0', '0', null, '', 'admin', '2020-09-10 11:16:23', '', null, '卡片特效');
 INSERT INTO `sys_menu` VALUES ('132', '流体动画', '4', '17', 'fluid', 'components-demo/fluid', '1', 'C', '0', '0', null, '', 'admin', '2020-09-17 10:04:42', '', null, '流体动画');
-INSERT INTO `sys_menu` VALUES ('133', '写着玩', '4', '18', 'test', 'components-demo/test', '1', 'C', '0', '0', '', '', 'admin', '2020-09-03 15:28:18', '', null, '练习');
+INSERT INTO `sys_menu` VALUES ('133', '手写签名', '4', '18', 'autograph', 'components-demo/autograph', '1', 'C', '0', '0', null, '', 'admin', '2020-09-17 19:11:20', '', null, '手写签名');
+INSERT INTO `sys_menu` VALUES ('134', '写着玩', '4', '19', 'test', 'components-demo/test', '1', 'C', '0', '0', '', '', 'admin', '2020-09-03 15:28:18', '', null, '练习');
 INSERT INTO `sys_menu` VALUES ('200', '动态表格', '5', '1', 'dynamic-table', 'table/dynamic-table', '1', 'C', '0', '0', 'table:dynamic-table:list', '', 'admin', '2020-09-01 17:25:52', '', null, '动态表格');
 INSERT INTO `sys_menu` VALUES ('201', '拖拽表格', '5', '2', 'drag-table', 'table/drag-table', '1', 'C', '0', '0', 'table:drag-table:list', '', 'admin', '2020-09-01 18:05:32', '', null, '拖拽表格');
 INSERT INTO `sys_menu` VALUES ('202', '表格内编辑', '5', '3', 'inline-edit-table', 'table/inline-edit-table', '1', 'C', '0', '0', 'table:inline-edit-table:list', '', 'admin', '2020-09-01 18:08:52', '', '2020-09-01 18:08:54', '表格内编辑');
