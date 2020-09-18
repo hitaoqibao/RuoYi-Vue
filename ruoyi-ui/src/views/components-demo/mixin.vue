@@ -8,40 +8,28 @@
           </div>
           <div style="margin-bottom:50px;">
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn blue-btn" to="/documentation/index"
-                >Documentation</router-link
-              >
+              <router-link class="pan-btn blue-btn" to="/documentation/index">Documentation</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn light-blue-btn" to="/icon/index"
-                >Icons</router-link
-              >
+              <router-link class="pan-btn light-blue-btn" to="/icon/index">Icons</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn pink-btn" to="/excel/export-excel"
-                >Excel</router-link
-              >
+              <router-link class="pan-btn pink-btn" to="/excel/export-excel">Excel</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn green-btn" to="/table/complex-table"
-                >Table</router-link
-              >
+              <router-link class="pan-btn green-btn" to="/table/complex-table">Table</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn tiffany-btn" to="/example/create"
-                >Form</router-link
-              >
+              <router-link class="pan-btn tiffany-btn" to="/example/create">Form</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn yellow-btn" to="/theme/index"
-                >Theme</router-link
-              >
+              <router-link class="pan-btn yellow-btn" to="/theme/index">Theme</router-link>
             </el-col>
           </div>
         </el-card>
       </el-row>
 
-      <el-row :gutter="20" style="margin-top:50px;">
+      <el-row :gutter="20" style="margin-top:20px;">
         <el-col :span="6">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
@@ -55,8 +43,7 @@
                     icon="el-icon-search"
                     name="title"
                     placeholder="输入标题"
-                    >标题</md-input
-                  >
+                  >标题</md-input>
                 </el-form-item>
               </el-form>
             </div>
@@ -101,19 +88,28 @@
         </el-col>
       </el-row>
 
-      <el-row :gutter="20" style="margin-top:50px;">
-        <el-col :span="8">
+      <el-row :gutter="20" style="margin-top:20px;">
+        <el-col :span="6">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
               <span>Share</span>
             </div>
             <div class="component-item" style="height:420px;">
-              <dropdown-menu
-                :items="articleList"
-                style="margin:0 auto;"
-                title="测试"
-              />
+              <dropdown-menu :items="articleList" style="margin:0 auto;" title="测试" />
             </div>
+          </el-card>
+        </el-col>
+        <el-col :span="18">
+          <el-card>
+            <div slot="header">
+              <span>翻页时间</span>
+            </div>
+            <el-divider content-position="left">不带日期</el-divider>
+            <flip-time :show="false"></flip-time>
+            <el-divider content-position="left">带日期(传统格式)</el-divider>
+            <flip-time :show="true" :content="['/','/','']"></flip-time>
+            <el-divider content-position="left">带日期(年月日)</el-divider>
+            <flip-time :show="true"></flip-time>
           </el-card>
         </el-col>
       </el-row>
@@ -122,19 +118,21 @@
 </template>
 
 <script>
-import PanThumb from '@/components/PanThumb';
-import MdInput from '@/components/MDinput';
-import Mallki from '@/components/TextHoverEffect/Mallki';
-import DropdownMenu from '@/components/Share/DropdownMenu';
-import waves from '@/directive/waves/index.js'; // 水波纹指令
+import PanThumb from "@/components/PanThumb";
+import MdInput from "@/components/MDinput";
+import Mallki from "@/components/TextHoverEffect/Mallki";
+import DropdownMenu from "@/components/Share/DropdownMenu";
+import waves from "@/directive/waves/index.js"; // 水波纹指令
+import FlipTime from "@/components/FlipTime"; //翻页时间
 
 export default {
-  name: 'ComponentMixinDemo',
+  name: "ComponentMixinDemo",
   components: {
     PanThumb,
     MdInput,
     Mallki,
     DropdownMenu,
+    FlipTime,
   },
   directives: {
     waves,
@@ -142,25 +140,25 @@ export default {
   data() {
     const validate = (rule, value, callback) => {
       if (value.length !== 6) {
-        callback(new Error('请输入六个字符'));
+        callback(new Error("请输入六个字符"));
       } else {
         callback();
       }
     };
     return {
       demo: {
-        title: '',
+        title: "",
       },
       demoRules: {
-        title: [{ required: true, trigger: 'change', validator: validate }],
+        title: [{ required: true, trigger: "change", validator: validate }],
       },
       articleList: [
-        { title: '测试1' },
-        { title: '测试2' },
-        { title: '测试3' },
-        { title: '测试4' },
-        { title: '测试5' },
-        { title: '测试6' },
+        { title: "测试1" },
+        { title: "测试2" },
+        { title: "测试3" },
+        { title: "测试4" },
+        { title: "测试5" },
+        { title: "测试6" },
       ],
     };
   },
