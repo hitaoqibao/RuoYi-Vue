@@ -8,22 +8,34 @@
           </div>
           <div style="margin-bottom:50px;">
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn blue-btn" to="/documentation/index">Documentation</router-link>
+              <router-link class="pan-btn blue-btn" to="/documentation/index"
+                >Documentation</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn light-blue-btn" to="/icon/index">Icons</router-link>
+              <router-link class="pan-btn light-blue-btn" to="/icon/index"
+                >Icons</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn pink-btn" to="/excel/export-excel">Excel</router-link>
+              <router-link class="pan-btn pink-btn" to="/excel/export-excel"
+                >Excel</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn green-btn" to="/table/complex-table">Table</router-link>
+              <router-link class="pan-btn green-btn" to="/table/complex-table"
+                >Table</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn tiffany-btn" to="/example/create">Form</router-link>
+              <router-link class="pan-btn tiffany-btn" to="/example/create"
+                >Form</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn yellow-btn" to="/theme/index">Theme</router-link>
+              <router-link class="pan-btn yellow-btn" to="/theme/index"
+                >Theme</router-link
+              >
             </el-col>
           </div>
         </el-card>
@@ -43,7 +55,8 @@
                     icon="el-icon-search"
                     name="title"
                     placeholder="输入标题"
-                  >标题</md-input>
+                    >标题</md-input
+                  >
                 </el-form-item>
               </el-form>
             </div>
@@ -95,7 +108,11 @@
               <span>Share</span>
             </div>
             <div class="component-item" style="height:420px;">
-              <dropdown-menu :items="articleList" style="margin:0 auto;" title="测试" />
+              <dropdown-menu
+                :items="articleList"
+                style="margin:0 auto;"
+                title="测试"
+              />
             </div>
           </el-card>
         </el-col>
@@ -107,9 +124,24 @@
             <el-divider content-position="left">不带日期</el-divider>
             <flip-time :show="false"></flip-time>
             <el-divider content-position="left">带日期(传统格式)</el-divider>
-            <flip-time :show="true" :content="['/','/','']"></flip-time>
+            <flip-time :show="true" :content="['/', '/', '']"></flip-time>
             <el-divider content-position="left">带日期(年月日)</el-divider>
             <flip-time :show="true"></flip-time>
+            <el-divider content-position="left">翻页倒计时</el-divider>
+            <flip-down
+              :endDate="1700648599015"
+              :timeUnit="[':', ':', ':']"
+            ></flip-down>
+          </el-card>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20" style="margin-top:20px;">
+        <el-col :span="8">
+          <el-card>
+            <div slot="header">
+              <span>时钟样式</span>
+            </div>
+            <clock-page></clock-page>
           </el-card>
         </el-col>
       </el-row>
@@ -124,6 +156,8 @@ import Mallki from "@/components/TextHoverEffect/Mallki";
 import DropdownMenu from "@/components/Share/DropdownMenu";
 import waves from "@/directive/waves/index.js"; // 水波纹指令
 import FlipTime from "@/components/FlipTime"; //翻页时间
+import FlipDown from "@/components/FlipDown"; //翻页倒计时
+import ClockPage from "@/components/ClockPage"; //时钟
 
 export default {
   name: "ComponentMixinDemo",
@@ -133,9 +167,11 @@ export default {
     Mallki,
     DropdownMenu,
     FlipTime,
+    FlipDown,
+    ClockPage
   },
   directives: {
-    waves,
+    waves
   },
   data() {
     const validate = (rule, value, callback) => {
@@ -147,10 +183,10 @@ export default {
     };
     return {
       demo: {
-        title: "",
+        title: ""
       },
       demoRules: {
-        title: [{ required: true, trigger: "change", validator: validate }],
+        title: [{ required: true, trigger: "change", validator: validate }]
       },
       articleList: [
         { title: "测试1" },
@@ -158,10 +194,10 @@ export default {
         { title: "测试3" },
         { title: "测试4" },
         { title: "测试5" },
-        { title: "测试6" },
-      ],
+        { title: "测试6" }
+      ]
     };
-  },
+  }
 };
 </script>
 
