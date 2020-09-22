@@ -17,7 +17,7 @@ import Layout from '@/layout'
  * redirect: noRedirect           // 当设置 noRedirect 的时候该路由在面包屑导航中不可被点击
  * name:'router-name'             // 设定路由的名字，一定要填写不然使用<keep-alive>时会出现各种问题
  * meta : {
-    roles: ['admin','editor']    // 设置该路由进入的权限，支持多个权限叠加
+    noCache: true                // 如果设置为true，则不会被 <keep-alive> 缓存(默认 false)
     title: 'title'               // 设置该路由在侧边栏和面包屑中展示的名字
     icon: 'svg-name'             // 设置该路由的图标，对应路径src/icons/svg
     breadcrumb: false            // 如果设置为false，则不会在breadcrumb面包屑中显示
@@ -25,17 +25,14 @@ import Layout from '@/layout'
  */
 
 // 公共路由
-export const constantRoutes = [
-  {
+export const constantRoutes = [{
     path: '/redirect',
     component: Layout,
     hidden: true,
-    children: [
-      {
-        path: '/redirect/:path(.*)',
-        component: (resolve) => require(['@/views/redirect'], resolve)
-      }
-    ]
+    children: [{
+      path: '/redirect/:path(.*)',
+      component: (resolve) => require(['@/views/redirect'], resolve)
+    }]
   },
   {
     path: '/login',
@@ -56,72 +53,79 @@ export const constantRoutes = [
     path: '',
     component: Layout,
     redirect: 'index',
-    children: [
-      {
-        path: 'index',
-        component: (resolve) => require(['@/views/index'], resolve),
-        name: '首页',
-        meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
+    children: [{
+      path: 'index',
+      component: (resolve) => require(['@/views/index'], resolve),
+      name: '首页',
+      meta: {
+        title: '首页',
+        icon: 'dashboard',
+        noCache: true,
+        affix: true
       }
-    ]
+    }]
   },
   {
     path: '/user',
     component: Layout,
     hidden: true,
     redirect: 'noredirect',
-    children: [
-      {
-        path: 'profile',
-        component: (resolve) => require(['@/views/system/user/profile/index'], resolve),
-        name: 'Profile',
-        meta: { title: '个人中心', icon: 'user' }
+    children: [{
+      path: 'profile',
+      component: (resolve) => require(['@/views/system/user/profile/index'], resolve),
+      name: 'Profile',
+      meta: {
+        title: '个人中心',
+        icon: 'user'
       }
-    ]
+    }]
   },
   {
     path: '/dict',
     component: Layout,
     hidden: true,
-    children: [
-      {
-        path: 'type/data/:dictId(\\d+)',
-        component: (resolve) => require(['@/views/system/dict/data'], resolve),
-        name: 'Data',
-        meta: { title: '字典数据', icon: '' }
+    children: [{
+      path: 'type/data/:dictId(\\d+)',
+      component: (resolve) => require(['@/views/system/dict/data'], resolve),
+      name: 'Data',
+      meta: {
+        title: '字典数据',
+        icon: ''
       }
-    ]
+    }]
   },
   {
     path: '/job',
     component: Layout,
     hidden: true,
-    children: [
-      {
-        path: 'log',
-        component: (resolve) => require(['@/views/monitor/job/log'], resolve),
-        name: 'JobLog',
-        meta: { title: '调度日志' }
+    children: [{
+      path: 'log',
+      component: (resolve) => require(['@/views/monitor/job/log'], resolve),
+      name: 'JobLog',
+      meta: {
+        title: '调度日志'
       }
-    ]
+    }]
   },
   {
     path: '/gen',
     component: Layout,
     hidden: true,
-    children: [
-      {
-        path: 'edit/:tableId(\\d+)',
-        component: (resolve) => require(['@/views/tool/gen/editTable'], resolve),
-        name: 'GenEdit',
-        meta: { title: '修改生成配置' }
+    children: [{
+      path: 'edit/:tableId(\\d+)',
+      component: (resolve) => require(['@/views/tool/gen/editTable'], resolve),
+      name: 'GenEdit',
+      meta: {
+        title: '修改生成配置'
       }
-    ]
+    }]
   }
 ]
 
 export default new Router({
   mode: 'history', // 去掉url中的#
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes: constantRoutes
 })
