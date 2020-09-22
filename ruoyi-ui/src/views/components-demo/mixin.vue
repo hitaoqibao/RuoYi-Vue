@@ -8,34 +8,22 @@
           </div>
           <div style="margin-bottom:50px;">
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn blue-btn" to="/documentation/index"
-                >Documentation</router-link
-              >
+              <router-link class="pan-btn blue-btn" to="/documentation/index">Documentation</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn light-blue-btn" to="/icon/index"
-                >Icons</router-link
-              >
+              <router-link class="pan-btn light-blue-btn" to="/icon/index">Icons</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn pink-btn" to="/excel/export-excel"
-                >Excel</router-link
-              >
+              <router-link class="pan-btn pink-btn" to="/excel/export-excel">Excel</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn green-btn" to="/table/complex-table"
-                >Table</router-link
-              >
+              <router-link class="pan-btn green-btn" to="/table/complex-table">Table</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn tiffany-btn" to="/example/create"
-                >Form</router-link
-              >
+              <router-link class="pan-btn tiffany-btn" to="/example/create">Form</router-link>
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn yellow-btn" to="/theme/index"
-                >Theme</router-link
-              >
+              <router-link class="pan-btn yellow-btn" to="/theme/index">Theme</router-link>
             </el-col>
           </div>
         </el-card>
@@ -55,8 +43,7 @@
                     icon="el-icon-search"
                     name="title"
                     placeholder="输入标题"
-                    >标题</md-input
-                  >
+                  >标题</md-input>
                 </el-form-item>
               </el-form>
             </div>
@@ -108,11 +95,7 @@
               <span>Share</span>
             </div>
             <div class="component-item" style="height:420px;">
-              <dropdown-menu
-                :items="articleList"
-                style="margin:0 auto;"
-                title="测试"
-              />
+              <dropdown-menu :items="articleList" style="margin:0 auto;" title="测试" />
             </div>
           </el-card>
         </el-col>
@@ -127,11 +110,18 @@
             <flip-time :show="true" :content="['/', '/', '']"></flip-time>
             <el-divider content-position="left">带日期(年月日)</el-divider>
             <flip-time :show="true"></flip-time>
-            <el-divider content-position="left">翻页倒计时</el-divider>
-            <flip-down
-              :endDate="1700648599015"
-              :timeUnit="[':', ':', ':']"
-            ></flip-down>
+            <el-divider content-position="left">翻页倒计时(待实现)</el-divider>
+            <el-form>
+              <el-form-item>
+                <flip-down :endDate="123456" :timeUnit="[':', ':', ':']"></flip-down>
+              </el-form-item>
+              <el-form-item>
+                <el-input v-model="downtime" placeholder="默认为123456秒"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary">开始</el-button>
+              </el-form-item>
+            </el-form>
           </el-card>
         </el-col>
       </el-row>
@@ -168,10 +158,10 @@ export default {
     DropdownMenu,
     FlipTime,
     FlipDown,
-    ClockPage
+    ClockPage,
   },
   directives: {
-    waves
+    waves,
   },
   data() {
     const validate = (rule, value, callback) => {
@@ -183,10 +173,10 @@ export default {
     };
     return {
       demo: {
-        title: ""
+        title: "",
       },
       demoRules: {
-        title: [{ required: true, trigger: "change", validator: validate }]
+        title: [{ required: true, trigger: "change", validator: validate }],
       },
       articleList: [
         { title: "测试1" },
@@ -194,10 +184,12 @@ export default {
         { title: "测试3" },
         { title: "测试4" },
         { title: "测试5" },
-        { title: "测试6" }
-      ]
+        { title: "测试6" },
+      ],
+      // 倒计时时间
+      downtime: "123456",
     };
-  }
+  },
 };
 </script>
 
