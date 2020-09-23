@@ -111,15 +111,56 @@
             <el-divider content-position="left">带日期(年月日)</el-divider>
             <flip-time :show="true"></flip-time>
             <el-divider content-position="left">翻页倒计时(待实现)</el-divider>
-            <el-form>
+            <el-form inline="true">
               <el-form-item>
-                <flip-down :endDate="123456" :timeUnit="[':', ':', ':']"></flip-down>
+                <flip-down :endDate="0"></flip-down>
               </el-form-item>
               <el-form-item>
-                <el-input v-model="downtime" placeholder="默认为123456秒"></el-input>
+                <el-input :style="{width:'200px'}" v-model="downtime" placeholder="默认为123456秒"></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button type="primary">开始</el-button>
+              </el-form-item>
+            </el-form>
+            <el-divider content-position="left">普通倒计时</el-divider>
+            <el-form inline="true">
+              <el-form-item>
+                <el-tag>
+                  <time-count-down
+                    :deadline="deadline"
+                    :complete-zero="true"
+                    :left-second="0"
+                    :ignore-day="false"
+                    @done="done()"
+                    @update="update()"
+                  ></time-count-down>
+                </el-tag>
+              </el-form-item>
+              <el-form-item>
+                <el-tag>
+                  <time-count-down
+                    :deadline="deadline"
+                    :complete-zero="true"
+                    :left-second="0"
+                    :ignore-day="false"
+                    @done="done()"
+                    @update="update()"
+                    v-slot="time"
+                  >
+                    {{ time.day }}天
+                    {{ time.hour }}时
+                    {{ time.minute }}分
+                    {{ time.second }}秒
+                  </time-count-down>
+                </el-tag>
+              </el-form-item>
+              <el-form-item>
+                <el-input
+                  v-model="deadline"
+                  :style="{width:'100px'}"
+                  placeholder="请输入秒数"
+                  size="mini"
+                ></el-input>
               </el-form-item>
             </el-form>
           </el-card>
@@ -148,6 +189,7 @@ import waves from "@/directive/waves/index.js"; // 水波纹指令
 import FlipTime from "@/components/FlipTime"; //翻页时间
 import FlipDown from "@/components/FlipDown"; //翻页倒计时
 import ClockPage from "@/components/ClockPage"; //时钟
+import TimeCountDown from "@/components/TimeCountDown"; //倒计时
 
 export default {
   name: "ComponentMixinDemo",
@@ -159,6 +201,7 @@ export default {
     FlipTime,
     FlipDown,
     ClockPage,
+    TimeCountDown,
   },
   directives: {
     waves,
@@ -187,7 +230,9 @@ export default {
         { title: "测试6" },
       ],
       // 倒计时时间
-      downtime: "123456",
+      downtime: "",
+      // 普通倒计时
+      deadline: "",
     };
   },
 };

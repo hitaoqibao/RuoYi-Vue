@@ -1,6 +1,8 @@
 <!-- 翻页效果 倒计时组件 -->
 <template>
-  <div :class="['vue-countdown-component', { theme2: theme !== 1 }, { ie: isIE }]">
+  <div
+    :class="['vue-countdown-component', { theme2: theme !== 1 }, { ie: isIE }]"
+  >
     <template v-for="(item, index) in timeArray">
       <div :class="['time-box']" :key="index">
         <!-- 底层基础div -->
@@ -12,7 +14,9 @@
         <div
           :class="['face', { anime: isAnimate[index] }]"
           @animationend="onAnimateEnd(index)"
-        >{{ timeArrayT[index] }}</div>
+        >
+          {{ timeArrayT[index] }}
+        </div>
         <div :class="['back', { anime: isAnimate[index] }]">{{ item }}</div>
       </div>
       <!-- 文字 -->
@@ -20,7 +24,9 @@
         class="time-unit"
         :key="`unit-${index}`"
         v-if="isTimeUnitShow(index)"
-      >{{ setTimeUnit(index) }}</div>
+      >
+        {{ setTimeUnit(index) }}
+      </div>
     </template>
   </div>
 </template>
@@ -45,14 +51,14 @@ export default {
       isAnimate:
         this.theme === 2
           ? new Array(this.type * 2).fill(false)
-          : new Array(this.type).fill(false),
+          : new Array(this.type).fill(false)
     };
   },
   props: {
     endDate: { type: [Date, Number, String], default: "1111111" }, // 截止时间
     type: { type: [Number, String], default: 4 }, // 时间精度 4/3/2/1
     theme: { type: [Number, String], default: 1 },
-    timeUnit: { type: Array, default: () => ["天", "时", "分", "秒"] },
+    timeUnit: { type: Array, default: () => ["天", "时", "分", "秒"] }
   },
   computed: {
     endTime() {
@@ -71,11 +77,11 @@ export default {
         length - 1,
         length - step - 1,
         length - step * 2 - 1,
-        length - step * 3 - 1,
+        length - step * 3 - 1
       ];
       temp.length = this.type > 1 ? this.type : 1;
       return temp;
-    },
+    }
   },
   watch: {
     timeArray(newV, oldV) {
@@ -87,7 +93,7 @@ export default {
         }
       });
       setTimeout(() => {
-        diff.forEach((item) => {
+        diff.forEach(item => {
           this.$set(this.timeArrayT, item.index, item.value);
         });
       }, 350);
@@ -96,7 +102,7 @@ export default {
       if (newV > 0) {
         this.start();
       }
-    },
+    }
   },
   mounted() {
     if (
@@ -118,6 +124,7 @@ export default {
   methods: {
     test() {
       this.savetime = this.savetime - 1;
+
       this.timer1 = setTimeout(() => {
         this.test();
       }, 1000);
@@ -127,6 +134,7 @@ export default {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
         let t = this.savetime;
+
         t = t < 0 ? 0 : t;
         let day = 0; // 剩余的天
         let hour = 0; // 剩余的小时
@@ -157,10 +165,29 @@ export default {
           arr.push(String(second).padStart(2, "0"));
         } else {
           // 分开
-          type >= 4 && arr.push(...String(day).padStart(2, "0").split(""));
-          type >= 3 && arr.push(...String(hour).padStart(2, "0").split(""));
-          type >= 2 && arr.push(...String(min).padStart(2, "0").split(""));
-          arr.push(...String(second).padStart(2, "0").split(""));
+          type >= 4 &&
+            arr.push(
+              ...String(day)
+                .padStart(2, "0")
+                .split("")
+            );
+          type >= 3 &&
+            arr.push(
+              ...String(hour)
+                .padStart(2, "0")
+                .split("")
+            );
+          type >= 2 &&
+            arr.push(
+              ...String(min)
+                .padStart(2, "0")
+                .split("")
+            );
+          arr.push(
+            ...String(second)
+              .padStart(2, "0")
+              .split("")
+          );
         }
         this.timeArray = arr;
         if (t > 0) {
@@ -194,8 +221,8 @@ export default {
         default:
           return this.timeUnit[0] || ""; // 天
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
