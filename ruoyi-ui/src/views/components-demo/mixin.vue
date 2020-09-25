@@ -8,22 +8,34 @@
           </div>
           <div style="margin-bottom:50px;">
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn blue-btn" to="/documentation/index">Documentation</router-link>
+              <router-link class="pan-btn blue-btn" to="/documentation/index"
+                >Documentation</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn light-blue-btn" to="/icon/index">Icons</router-link>
+              <router-link class="pan-btn light-blue-btn" to="/icon/index"
+                >Icons</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn pink-btn" to="/excel/export-excel">Excel</router-link>
+              <router-link class="pan-btn pink-btn" to="/excel/export-excel"
+                >Excel</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn green-btn" to="/table/complex-table">Table</router-link>
+              <router-link class="pan-btn green-btn" to="/table/complex-table"
+                >Table</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn tiffany-btn" to="/example/create">Form</router-link>
+              <router-link class="pan-btn tiffany-btn" to="/example/create"
+                >Form</router-link
+              >
             </el-col>
             <el-col :span="4" class="text-center">
-              <router-link class="pan-btn yellow-btn" to="/theme/index">Theme</router-link>
+              <router-link class="pan-btn yellow-btn" to="/theme/index"
+                >Theme</router-link
+              >
             </el-col>
           </div>
         </el-card>
@@ -43,7 +55,8 @@
                     icon="el-icon-search"
                     name="title"
                     placeholder="输入标题"
-                  >标题</md-input>
+                    >标题</md-input
+                  >
                 </el-form-item>
               </el-form>
             </div>
@@ -95,7 +108,11 @@
               <span>Share</span>
             </div>
             <div class="component-item" style="height:420px;">
-              <dropdown-menu :items="articleList" style="margin:0 auto;" title="测试" />
+              <dropdown-menu
+                :items="articleList"
+                style="margin:0 auto;"
+                title="测试"
+              />
             </div>
           </el-card>
         </el-col>
@@ -116,7 +133,11 @@
                 <flip-down :endDate="0"></flip-down>
               </el-form-item>
               <el-form-item>
-                <el-input :style="{width:'200px'}" v-model="downtime" placeholder="默认为123456秒"></el-input>
+                <el-input
+                  :style="{ width: '200px' }"
+                  v-model="downtime"
+                  placeholder="默认为123456秒"
+                ></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button type="primary">开始</el-button>
@@ -147,9 +168,7 @@
                     @update="update()"
                     v-slot="time"
                   >
-                    {{ time.day }}天
-                    {{ time.hour }}时
-                    {{ time.minute }}分
+                    {{ time.day }}天 {{ time.hour }}时 {{ time.minute }}分
                     {{ time.second }}秒
                   </time-count-down>
                 </el-tag>
@@ -157,7 +176,7 @@
               <el-form-item>
                 <el-input
                   v-model="deadline"
-                  :style="{width:'100px'}"
+                  :style="{ width: '100px' }"
                   placeholder="请输入秒数"
                   size="mini"
                 ></el-input>
@@ -175,6 +194,66 @@
             <clock-page></clock-page>
           </el-card>
         </el-col>
+
+        <el-col :span="16">
+          <el-card>
+            <div slot="header" class="clearfix">
+              <span>滑块验证</span>
+            </div>
+            <el-row>
+              <el-col :span="8">
+                <el-button @click="handleClick(1)">最简单用法</el-button>
+                <puzzle-verification
+                  v-model="isVerificationShow1"
+                  :onSuccess="handleSuccess"
+              /></el-col>
+              <el-col :span="8">
+                <el-button @click="handleClick(2)">拼图形滑块</el-button>
+                <puzzle-verification
+                  v-model="isVerificationShow2"
+                  :puzzleImgList="puzzleImgList"
+                  blockType="puzzle"
+                  :onSuccess="handleSuccess"
+                />
+              </el-col>
+              <el-col :span="8">
+                <el-button @click="handleClick(3)">控制大小</el-button>
+                <puzzle-verification
+                  v-model="isVerificationShow3"
+                  width="300"
+                  height="200"
+                  blockSize="80"
+                  blockRadius="5"
+                  :onSuccess="handleSuccess"
+                />
+              </el-col>
+            </el-row>
+            <el-row :style="{ marginTop: '45px' }">
+              <el-col :span="8">
+                <el-button @click="handleClick(4)">
+                  控制误差
+                </el-button>
+                <puzzle-verification
+                  v-model="isVerificationShow4"
+                  :puzzleImgList="puzzleImgList"
+                  deviation="20"
+                  blockType="puzzle"
+                  :onSuccess="handleSuccess"
+                />
+              </el-col>
+              <el-col :span="8">
+                <el-button @click="handleClick(5)"
+                  >控制滑块出现位置范围</el-button
+                >
+                <puzzle-verification
+                  v-model="isVerificationShow5"
+                  wraperPadding="50"
+                  :onSuccess="handleSuccess"
+                />
+              </el-col>
+            </el-row>
+          </el-card>
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -190,6 +269,7 @@ import FlipTime from "@/components/FlipTime"; //翻页时间
 import FlipDown from "@/components/FlipDown"; //翻页倒计时
 import ClockPage from "@/components/ClockPage"; //时钟
 import TimeCountDown from "@/components/TimeCountDown"; //倒计时
+import PuzzleVerification from "@/components/puzzleVerification"; //滑动验证
 
 export default {
   name: "ComponentMixinDemo",
@@ -202,9 +282,10 @@ export default {
     FlipDown,
     ClockPage,
     TimeCountDown,
+    PuzzleVerification
   },
   directives: {
-    waves,
+    waves
   },
   data() {
     const validate = (rule, value, callback) => {
@@ -216,10 +297,10 @@ export default {
     };
     return {
       demo: {
-        title: "",
+        title: ""
       },
       demoRules: {
-        title: [{ required: true, trigger: "change", validator: validate }],
+        title: [{ required: true, trigger: "change", validator: validate }]
       },
       articleList: [
         { title: "测试1" },
@@ -227,14 +308,49 @@ export default {
         { title: "测试3" },
         { title: "测试4" },
         { title: "测试5" },
-        { title: "测试6" },
+        { title: "测试6" }
       ],
       // 倒计时时间
       downtime: "",
       // 普通倒计时
       deadline: "",
+      // 滑动验证图片
+      puzzleImgList: [
+        require("@/assets/verification/thumbnail-img01.jpg"),
+        require("@/assets/verification/thumbnail-img02.jpg"),
+        require("@/assets/verification/thumbnail-img03.jpg")
+      ],
+      isVerificationShow1: false,
+      isVerificationShow2: false,
+      isVerificationShow3: false,
+      isVerificationShow4: false,
+      isVerificationShow5: false
     };
   },
+  methods: {
+    // 滑动验证样式
+    handleClick(n) {
+      switch (n) {
+        case 1:
+          this.isVerificationShow1 = !this.isVerificationShow1;
+          break;
+        case 2:
+          this.isVerificationShow2 = !this.isVerificationShow2;
+          break;
+        case 3:
+          this.isVerificationShow3 = !this.isVerificationShow3;
+          break;
+        case 4:
+          this.isVerificationShow4 = !this.isVerificationShow4;
+          break;
+        default:
+          this.isVerificationShow5 = !this.isVerificationShow5;
+      }
+    },
+    handleSuccess() {
+      console.log("验证成功了");
+    }
+  }
 };
 </script>
 
