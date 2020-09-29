@@ -33,6 +33,7 @@
       <el-dropdown
         class="avatar-container right-menu-item hover-effect"
         trigger="click"
+        @command="handleCommand"
       >
         <div class="avatar-wrapper">
           <img :src="avatar" class="user-avatar" />
@@ -42,6 +43,9 @@
           <router-link to="/user/profile">
             <el-dropdown-item icon="el-icon-user">个人中心</el-dropdown-item>
           </router-link>
+          <el-dropdown-item icon="el-icon-guide" command="guide"
+            >新手指引</el-dropdown-item
+          >
           <el-dropdown-item
             @click.native="setting = true"
             icon="el-icon-s-operation"
@@ -70,6 +74,9 @@ import SizeSelect from "@/components/SizeSelect";
 import Search from "@/components/HeaderSearch";
 import RuoYiGit from "@/components/RuoYi/Git";
 import RuoYiDoc from "@/components/RuoYi/Doc";
+import Driver from "driver.js"; // 指引   https://github.com/kamranahmedse/driver.js
+import "driver.js/dist/driver.min.css"; //指引样式
+import steps from "@/vendor/guide"; //指引内容
 
 export default {
   components: {
@@ -80,6 +87,11 @@ export default {
     Search,
     RuoYiGit,
     RuoYiDoc
+  },
+  data() {
+    return {
+      driver: null
+    };
   },
   computed: {
     ...mapGetters(["sidebar", "avatar", "device"]),
@@ -95,6 +107,18 @@ export default {
       }
     }
   },
+  mounted() {
+    this.driver = new Driver({
+      doneBtnText: "完成", //结束按钮的文字
+      stageBackground: "rgb(255,255,255,0.5)", //突出显示元素的背景颜色
+      opacity: 0.75, //背景不透明度
+      padding: 0, //元素到边缘距离，默认为10
+      nextBtnText: "下一步", //下一步按钮的文字
+      prevBtnText: "上一步", //上一步按钮的文字
+      closeBtnText: "关闭", //关闭按钮的文字
+      allowClose: false //点击幕布是否关闭
+    });
+  },
   methods: {
     toggleSideBar() {
       this.$store.dispatch("app/toggleSideBar");
@@ -109,6 +133,13 @@ export default {
           location.href = "/index";
         });
       });
+    },
+    // 新手指引
+    handleCommand(command) {
+      if (command === "guide") {
+        this.driver.defineSteps(steps);
+        this.driver.start();
+      }
     }
   }
 };
@@ -195,5 +226,23 @@ export default {
       }
     }
   }
+}
+</style>
+
+<style>
+/* driver.js部分样式修改 */
+div#driver-popover-item .driver-popover-footer /deep/ button {
+  background-color: #1890ff;
+  color: white;
+  text-shadow: none; /* 取消原来的text阴影，不然会有文字重叠的感觉 */
+  border: none; /* 取消原来它自己按钮设置的border */
+  line-height: 1.8;
+  border-radius: 4px;
+}
+div#driver-popover-item .driver-popover-footer /deep/ button:hover {
+  background-color: #50abff;
+}
+div#driver-popover-item .driver-popover-footer /deep/ button:active {
+  background-color: #1269ba;
 }
 </style>
