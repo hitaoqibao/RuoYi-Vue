@@ -5,31 +5,19 @@
       <a
         class="link-type"
         href="https://element.faas.ele.me/#/zh-CN/component/carousel"
-        >el-carousel</a
-      >
+      >el-carousel</a>
       轮播图
     </el-divider>
     <el-carousel :interval="4000" type="card" height="300px">
-      <el-carousel-item
-        v-for="item in bigScreen.images"
-        :key="item.name"
-        :name="item.name"
-      >
+      <el-carousel-item v-for="item in bigScreen.images" :key="item.name" :name="item.name">
         <img style="width:100%;height:100%;" :src="item.url" />
       </el-carousel-item>
     </el-carousel>
-    <el-divider content-position="left">
-      鼠标点击特效
-    </el-divider>
+    <el-divider content-position="left">鼠标点击特效</el-divider>
     <div class="Waves">
       <div class="main-container">
         <div class="waves">
-          <div
-            class="wave"
-            v-for="(item, key) in waves"
-            :key="key"
-            :style="item"
-          >
+          <div class="wave" v-for="(item, key) in waves" :key="key" :style="item">
             <div
               v-for="n in wavesConfig.total"
               :key="n"
@@ -48,9 +36,7 @@
     </div>
     <el-divider content-position="left">
       基于
-      <a class="link-type" href="https://github.com/lulin1/vue-particles"
-        >vue-particles</a
-      >
+      <a class="link-type" href="https://github.com/lulin1/vue-particles">vue-particles</a>
       网状粒子
     </el-divider>
     <div class="particles">
@@ -73,29 +59,29 @@ export default {
         images: [
           {
             name: "image1",
-            url: require("@/assets/image/carousel-image/image1.jpg")
+            url: require("@/assets/image/carousel-image/image1.jpg"),
           },
           {
             name: "image2",
-            url: require("@/assets/image/carousel-image/image2.jpg")
+            url: require("@/assets/image/carousel-image/image2.jpg"),
           },
           {
             name: "image3",
-            url: require("@/assets/image/carousel-image/image3.jpg")
+            url: require("@/assets/image/carousel-image/image3.jpg"),
           },
           {
             name: "image4",
-            url: require("@/assets/image/carousel-image/image4.jpg")
+            url: require("@/assets/image/carousel-image/image4.jpg"),
           },
           {
             name: "image5",
-            url: require("@/assets/image/carousel-image/image5.jpg")
+            url: require("@/assets/image/carousel-image/image5.jpg"),
           },
           {
             name: "image6",
-            url: require("@/assets/image/carousel-image/image6.jpg")
-          }
-        ]
+            url: require("@/assets/image/carousel-image/image6.jpg"),
+          },
+        ],
       },
       waves: [],
       wavesConfig: {
@@ -103,13 +89,13 @@ export default {
         minSize: 100, // px，波纹最小尺寸
         zIndexCount: 999, // 波纹父元素其实z-index数值
         waveColor: "#40b6f0", //波纹基础颜色
-        total: 5 //波纹圈层数
+        total: 5, //波纹圈层数
       },
-      clickedCount: 0 //统计点击次数
+      clickedCount: 0, //统计点击次数
     };
   },
   mounted() {
-    document.getElementById("app").onclick = e => {
+    document.getElementById("app").onclick = (e) => {
       this.clickedCount++; // 统计点击次数
       this.createWave(e);
     };
@@ -141,10 +127,10 @@ export default {
         top: `${e.clientY - waveSize / 2}px`,
         zIndex: this.wavesConfig.zIndexCount,
         width: `${waveSize}px`,
-        height: `${waveSize}px`
+        height: `${waveSize}px`,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

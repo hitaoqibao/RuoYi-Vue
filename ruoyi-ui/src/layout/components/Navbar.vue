@@ -10,7 +10,7 @@
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
+      <template v-if="device !== 'mobile'">
         <search id="header-search" class="right-menu-item" />
 
         <el-tooltip content="源码地址" effect="dark" placement="bottom">
@@ -30,19 +30,29 @@
         </el-tooltip>
       </template>
 
-      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+      <el-dropdown
+        class="avatar-container right-menu-item hover-effect"
+        trigger="click"
+      >
         <div class="avatar-wrapper">
           <img :src="avatar" class="user-avatar" />
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/user/profile">
-            <el-dropdown-item>个人中心</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-user">个人中心</el-dropdown-item>
           </router-link>
-          <el-dropdown-item @click.native="setting = true">
+          <el-dropdown-item
+            @click.native="setting = true"
+            icon="el-icon-s-operation"
+          >
             <span>布局设置</span>
           </el-dropdown-item>
-          <el-dropdown-item divided @click.native="logout">
+          <el-dropdown-item
+            divided
+            icon="el-icon-switch-button"
+            @click.native="logout"
+          >
             <span>退出登录</span>
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -69,7 +79,7 @@ export default {
     SizeSelect,
     Search,
     RuoYiGit,
-    RuoYiDoc,
+    RuoYiDoc
   },
   computed: {
     ...mapGetters(["sidebar", "avatar", "device"]),
@@ -80,10 +90,10 @@ export default {
       set(val) {
         this.$store.dispatch("settings/changeSetting", {
           key: "showSettings",
-          value: val,
+          value: val
         });
-      },
-    },
+      }
+    }
   },
   methods: {
     toggleSideBar() {
@@ -93,14 +103,14 @@ export default {
       this.$confirm("确定注销并退出系统吗？", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
-        type: "warning",
+        type: "warning"
       }).then(() => {
         this.$store.dispatch("LogOut").then(() => {
           location.href = "/index";
         });
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
