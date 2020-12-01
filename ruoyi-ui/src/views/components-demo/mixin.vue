@@ -255,6 +255,15 @@
           </el-card>
         </el-col>
       </el-row>
+      <el-row :style="{ marginTop: '20px' }">
+        <el-card>
+          <div slot="header">
+            <span>客户端ip获取</span>
+          </div>
+          <h3>搜狐接口(局域网获取到的是外网ip)：{{ sohuip }}</h3>
+          <h3>手写方法(局域网获取到的是内网ip)：{{ writeip }}</h3>
+        </el-card>
+      </el-row>
     </div>
   </div>
 </template>
@@ -324,8 +333,21 @@ export default {
       isVerificationShow2: false,
       isVerificationShow3: false,
       isVerificationShow4: false,
-      isVerificationShow5: false
+      isVerificationShow5: false,
+      // 搜狐接口ip
+      sohuip: "",
+      // 城市地址
+      cname: "",
+      // 手写ip
+      writeip: ""
     };
+  },
+  mounted() {
+    this.getUserIP(ip => {
+      this.sohuip = returnCitySN["cip"];
+      this.cname = returnCitySN["cname"];
+      this.writeip = ip;
+    });
   },
   methods: {
     // 滑动验证样式
@@ -349,6 +371,45 @@ export default {
     },
     handleSuccess() {
       console.log("验证成功了");
+    },
+    // 获取IP地址
+    getUserIP(onNewIP) {
+      let MyPeerConnection =
+        window.RTCPeerConnection ||
+        window.mozRTCPeerConnection ||
+        window.webkitRTCPeerConnection;
+      let pc = new MyPeerConnection({
+        iceServers: []
+      });
+      let noop = () => {};
+      let localIPs = {};
+      let ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
+      let iterateIP = ip => {
+        if (!localIPs[ip]) onNewIP(ip);
+        localIPs[ip] = true;
+      };
+      pc.createDataChannel("");
+      pc.createOffer()
+        .then(sdp => {
+          sdp.sdp.split("\n").forEach(function(line) {
+            if (line.indexOf("candidate") < 0) return;
+            line.match(ipRegex).forEach(iterateIP);
+          });
+          pc.setLocalDescription(sdp, noop, noop);
+        })
+        .catch(reason => {
+          console.log(reason);
+        });
+      pc.onicecandidate = ice => {
+        if (
+          !ice ||
+          !ice.candidate ||
+          !ice.candidate.candidate ||
+          !ice.candidate.candidate.match(ipRegex)
+        )
+          return;
+        ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
+      };
     }
   }
 };
